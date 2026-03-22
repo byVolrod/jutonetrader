@@ -2,9 +2,10 @@ import { motion } from 'framer-motion'
 import { Flame, BookOpen, TrendingUp } from 'lucide-react'
 
 const milestones = [
-  { icon: Flame, year: '2021', label: 'Début dans la finance', color: '#d4af37' },
-  { icon: BookOpen, year: '2024', label: '1er mentor crypto', color: '#10b981' },
-  { icon: TrendingUp, year: '2025', label: 'Trading avec mentors AT & AF', color: '#d4af37' },
+  { icon: Flame, year: '2021', label: 'Passion finance', emoji: '🔥', color: '#d4af37' },
+  { icon: BookOpen, year: '2024', label: 'Mentor crypto', emoji: '₿', color: '#10b981' },
+  { icon: TrendingUp, year: '2025', label: 'Mentors AT & AF', emoji: '📈', color: '#d4af37' },
+  { icon: TrendingUp, year: '2026', label: 'Communauté JOT', emoji: '🚀', color: '#10b981' },
 ]
 
 export default function About() {
@@ -38,23 +39,31 @@ export default function About() {
               <div className="absolute inset-0 pointer-events-none"
                 style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.8) 0%, transparent 50%)' }} />
 
-              {/* Overlay badge */}
-              <div className="absolute bottom-5 left-5 right-5">
-                <div className="flex items-center gap-3">
-                  {milestones.map((m, i) => (
-                    <motion.div
-                      key={m.year}
-                      className="flex-1 rounded-xl p-3 text-center"
-                      style={{ background: 'rgba(10,10,15,0.7)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.08)' }}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 + i * 0.1 }}
-                    >
-                      <div className="text-lg font-black" style={{ color: m.color }}>{m.year}</div>
-                      <div className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>{m.label}</div>
-                    </motion.div>
-                  ))}
+              {/* Timeline overlay */}
+              <div className="absolute bottom-0 left-0 right-0 px-5 pb-5 pt-10"
+                style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.95) 60%, transparent)' }}>
+                {/* Line */}
+                <div className="relative mb-4">
+                  <div className="absolute top-1/2 left-0 right-0 h-px" style={{ background: 'rgba(255,255,255,0.12)' }} />
+                  <div className="flex justify-between relative">
+                    {milestones.map((m, i) => (
+                      <motion.div
+                        key={m.year}
+                        className="flex flex-col items-center"
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + i * 0.1 }}
+                      >
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm mb-2"
+                          style={{ background: `${m.color}18`, border: `1px solid ${m.color}40` }}>
+                          {m.emoji}
+                        </div>
+                        <div className="text-sm font-black" style={{ color: m.color }}>{m.year}</div>
+                        <div className="text-[10px] mt-0.5 text-center whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.45)' }}>{m.label}</div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
