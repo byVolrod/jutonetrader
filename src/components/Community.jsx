@@ -12,7 +12,7 @@ const screenshots = [
     src: '/analyse-technique.png',
     channel: 'analyse-technique',
     label: 'Analyses graphiques',
-    desc: 'Chaque setup expliqué — structure, entrée, SL, TP.',
+    desc: 'Chaque setup expliqué : structure, entrée, SL, TP.',
   },
   {
     src: '/analyse-live.jpg',
@@ -61,7 +61,7 @@ export default function Community() {
             </span>
           </h2>
           <p className="text-base" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Voici à quoi ressemble le quotidien dans la communauté JOT — captures réelles, rien de mis en scène.
+            Voici à quoi ressemble le quotidien dans la communauté JOT. Captures réelles, rien de mis en scène.
           </p>
         </motion.div>
 

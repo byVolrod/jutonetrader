@@ -17,7 +17,7 @@ const testimonials = [
   {
     name: 'Soufiane Belghali',
     date: 'Octobre 2025',
-    content: 'Je le connais depuis presque deux ans maintenant. C\'est une super personne — toujours là pour aider, donner des explications ou partager des bons plans. Quelqu\'un d\'honnête, ambitieux et qui cherche vraiment à faire évoluer les gens autour de lui.',
+    content: 'Je le connais depuis presque deux ans maintenant. C\'est une super personne, toujours là pour aider, donner des explications ou partager des bons plans. Quelqu\'un d\'honnête, ambitieux et qui cherche vraiment à faire évoluer les gens autour de lui.',
     initial: 'S',
   },
   {

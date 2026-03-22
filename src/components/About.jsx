@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
-import { Flame, BookOpen, TrendingUp } from 'lucide-react'
+import { Flame, Bitcoin, TrendingUp, Users } from 'lucide-react'
 
 const milestones = [
-  { icon: Flame, year: '2021', label: 'Passion finance', emoji: '🔥', color: '#d4af37' },
-  { icon: BookOpen, year: '2024', label: 'Mentor crypto', emoji: '₿', color: '#10b981' },
-  { icon: TrendingUp, year: '2025', label: 'Mentors AT & AF', emoji: '📈', color: '#d4af37' },
-  { icon: TrendingUp, year: '2026', label: 'Communauté JOT', emoji: '🚀', color: '#10b981' },
+  { icon: Flame, year: '2021', label: 'Passion finance', color: '#d4af37' },
+  { icon: Bitcoin, year: '2024', label: 'Mentor crypto', color: '#10b981' },
+  { icon: TrendingUp, year: '2025', label: 'Mentors AT & AF', color: '#d4af37' },
+  { icon: Users, year: '2026', label: 'Communauté JOT', color: '#10b981' },
 ]
 
 export default function About() {
@@ -55,9 +55,9 @@ export default function About() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 + i * 0.1 }}
                       >
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm mb-2"
-                          style={{ background: `${m.color}18`, border: `1px solid ${m.color}40` }}>
-                          {m.emoji}
+                        <div className="w-9 h-9 rounded-full flex items-center justify-center mb-2"
+                          style={{ background: `${m.color}15`, border: `1px solid ${m.color}30` }}>
+                          <m.icon size={15} style={{ color: m.color }} />
                         </div>
                         <div className="text-sm font-black" style={{ color: m.color }}>{m.year}</div>
                         <div className="text-[10px] mt-0.5 text-center whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.45)' }}>{m.label}</div>
@@ -91,10 +91,10 @@ export default function About() {
 
             <div className="space-y-4 mb-8">
               <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                Passionné de finance depuis <strong className="text-white">2021</strong>, j'ai tout testé — copytrading, DCA, investissements passifs. En <strong className="text-white">2024</strong>, je me forme sérieusement avec un premier mentor en crypto, puis en <strong className="text-white">2025</strong> avec deux mentors spécialisés en analyse technique et fondamentale.
+                Passionné de finance depuis <strong className="text-white">2021</strong>, j'ai tout testé : copytrading, DCA, investissements passifs. En <strong className="text-white">2024</strong>, je me forme sérieusement avec un premier mentor en crypto, puis en <strong className="text-white">2025</strong> avec deux mentors spécialisés en analyse technique et fondamentale.
               </p>
               <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                Aujourd'hui, je partage chaque trade, chaque analyse, chaque résultat — gagnant ou perdant — en toute transparence avec la communauté. Pas de faux screenshots, pas de résultats triés. Juste la réalité d'un trader qui progresse et qui documente tout.
+                Aujourd'hui, je partage chaque trade, chaque analyse, chaque résultat, gagnant ou perdant, en toute transparence avec la communauté. Pas de faux screenshots, pas de résultats triés. Juste la réalité d'un trader qui progresse et qui documente tout.
               </p>
             </div>
 

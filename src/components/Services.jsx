@@ -5,14 +5,14 @@ const services = [
   {
     icon: Zap,
     title: 'Analyses en temps réel',
-    description: 'Entrée, stop-loss, take-profit — directement dans Discord avec le contexte. Chaque alerte est justifiée.',
+    description: 'Entrée, stop-loss, take-profit, directement dans Discord avec le contexte. Chaque alerte est justifiée.',
     tag: 'Live',
     color: '#d4af37',
   },
   {
     icon: BookOpen,
     title: 'Analyse AT & Fondamentale',
-    description: 'On combine technique et macro pour comprendre pourquoi le marché bouge — pas juste comment.',
+    description: 'On combine technique et macro pour comprendre pourquoi le marché bouge, pas juste comment.',
     tag: 'Méthode',
     color: '#10b981',
   },

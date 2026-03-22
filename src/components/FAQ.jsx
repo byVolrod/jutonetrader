@@ -5,11 +5,11 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
   {
     q: 'C\'est quoi JustOneTrader ?',
-    a: 'JustOneTrader est une communauté de traders et d\'investisseurs réunie autour d\'une approche rigoureuse des marchés financiers — Forex, Indices et Crypto. Analyses en temps réel, trades commentés, suivi de portefeuille et accompagnement personnalisé. La particularité ? Une transparence totale sur chaque décision, chaque résultat, chaque étape du parcours.',
+    a: 'JustOneTrader est une communauté de traders et d\'investisseurs réunie autour d\'une approche rigoureuse des marchés financiers : Forex, Indices et Crypto. Analyses en temps réel, trades commentés, suivi de portefeuille et accompagnement personnalisé. La particularité ? Une transparence totale sur chaque décision, chaque résultat, chaque étape du parcours.',
   },
   {
     q: 'Je suis débutant en trading, c\'est fait pour moi ?',
-    a: 'Oui. Le plan gratuit est conçu pour ceux qui commencent. Chaque signal est accompagné d\'une explication structurée : zone d\'entrée, stop-loss, take-profit et raisonnement. Pas de jargon inutile — juste ce qu\'il faut pour comprendre et agir. La communauté Discord est bienveillante et accessible à tout moment.',
+    a: 'Oui. Le plan gratuit est conçu pour ceux qui commencent. Chaque signal est accompagné d\'une explication structurée : zone d\'entrée, stop-loss, take-profit et raisonnement. Pas de jargon inutile, juste ce qu\'il faut pour comprendre et agir. La communauté Discord est bienveillante et accessible à tout moment.',
   },
   {
     q: 'Comment fonctionnent les analyses et prises de positions ?',
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: 'Les résultats sont-ils garantis ?',
-    a: 'Non — et tout trader honnête vous dira la même chose. Le trading comporte des risques de perte en capital. Ce que JustOneTrader garantit : des analyses rigoureuses, des setups justifiés, une gestion du risque transparente et un accompagnement sincère dans votre progression. Nos performances sont enregistrées en temps réel sur Pilot, accessibles à tous les membres.',
+    a: 'Non, et tout trader honnête vous dira la même chose. Le trading comporte des risques de perte en capital. Ce que JustOneTrader garantit : des analyses rigoureuses, des setups justifiés, une gestion du risque transparente et un accompagnement sincère dans votre progression. Nos performances sont enregistrées en temps réel sur Pilot, accessibles à tous les membres.',
   },
 ]
 

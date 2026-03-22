@@ -4,15 +4,15 @@ import { XCircle, CheckCircle } from 'lucide-react'
 const problems = [
   {
     title: 'Aucune stratégie claire',
-    desc: 'Trading à l\'instinct, entrées aléatoires — aucune cohérence dans les résultats.',
+    desc: 'Trading à l\'instinct, entrées aléatoires, aucune cohérence dans les résultats.',
   },
   {
     title: 'Gestion du risque absente',
-    desc: 'Positions trop grandes, stop-loss mal placés — des comptes brûlés en quelques trades.',
+    desc: 'Positions trop grandes, stop-loss mal placés. Des comptes brûlés en quelques trades.',
   },
   {
     title: 'Psychologie non maîtrisée',
-    desc: 'FOMO, revenge trading, panique sur les pertes — les émotions détruisent les performances.',
+    desc: 'FOMO, revenge trading, panique sur les pertes. Les émotions détruisent les performances.',
   },
 ]
 
@@ -77,7 +77,7 @@ export default function Problem() {
         >
           <CheckCircle size={20} style={{ color: '#10b981' }} className="shrink-0" />
           <p className="text-sm sm:text-base font-semibold text-white">
-            JustOneTrader résout ces 3 problèmes — avec une méthode structurée et transparente.
+            JustOneTrader résout ces 3 problèmes avec une méthode structurée et transparente.
           </p>
         </motion.div>
 

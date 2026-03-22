@@ -37,7 +37,7 @@ const plans = [
     emoji: '₿',
     price: '39,99€',
     period: '/mois',
-    description: 'Bitcoin, altcoins, on-chain — crypto en profondeur.',
+    description: 'Bitcoin, altcoins, on-chain. Crypto en profondeur.',
     features: [
       'Analyses et prises de positions Crypto',
       'Analyses on-chain & fondamentales',
