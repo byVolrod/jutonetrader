@@ -1,11 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, TrendingUp, ShieldCheck, Users } from 'lucide-react'
-
-const proof = [
-  { icon: TrendingUp, label: '93% win rate', sub: 'Sur 3 mois de trading réel' },
-  { icon: ShieldCheck, label: 'Transparence totale', sub: 'Chaque trade tracé sur Pilot' },
-  { icon: Users, label: '84+ membres actifs', sub: 'Notés 5.0★ sur Whop' },
-]
+import { ArrowRight } from 'lucide-react'
 
 export default function CTA() {
   return (
@@ -72,21 +66,20 @@ export default function CTA() {
               </a>
             </div>
 
-            {/* Proof strip */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8"
+            {/* Trust line */}
+            <div className="pt-8 flex items-center justify-center gap-3"
               style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              {proof.map((p, i) => (
-                <div key={i} className="flex items-center gap-3 justify-center sm:justify-start">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                    style={{ background: 'rgba(212,175,55,0.1)' }}>
-                    <p.icon size={14} style={{ color: '#d4af37' }} />
+              <div className="flex -space-x-2">
+                {['#d4af37', '#10b981', '#a5b4fc', '#e8c94a', '#f87171'].map((c, i) => (
+                  <div key={i} className="w-7 h-7 rounded-full border-2 flex items-center justify-center text-[10px] font-bold"
+                    style={{ background: `${c}20`, borderColor: '#0e0e18', color: c }}>
+                    {['M', 'K', 'S', 'A', 'T'][i]}
                   </div>
-                  <div className="text-left">
-                    <div className="text-white font-bold text-sm">{p.label}</div>
-                    <div className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>{p.sub}</div>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                Rejoignez <span className="text-white font-semibold">84+ traders</span> qui progressent chaque jour
+              </p>
             </div>
           </div>
         </motion.div>

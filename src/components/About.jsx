@@ -35,9 +35,9 @@ const timeline = [
 ]
 
 const pillars = [
-  { value: '5+', label: 'Ans de passion', color: '#d4af37' },
+  { value: '5+', label: 'Ans dans la finance', color: '#d4af37' },
   { value: '3', label: 'Mentors actifs', color: '#10b981' },
-  { value: '93%', label: 'Win rate', color: '#d4af37' },
+  { value: '84+', label: 'Membres dans la communauté', color: '#d4af37' },
 ]
 
 export default function About() {

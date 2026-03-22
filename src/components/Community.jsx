@@ -3,16 +3,22 @@ import { Hash, MessageSquare } from 'lucide-react'
 
 const screenshots = [
   {
+    src: '/jot-trades.png',
+    channel: 'jot-trades',
+    label: 'Trades en temps réel',
+    desc: 'Positions partagées en live avec entrée, résultat et analyse.',
+  },
+  {
     src: '/analyse-technique.png',
     channel: 'analyse-technique',
     label: 'Analyses graphiques',
     desc: 'Chaque setup est expliqué — structure, zone d\'entrée, SL, TP.',
   },
   {
-    src: '/jot-trades.png',
-    channel: 'jot-trades',
-    label: 'Trades en temps réel',
-    desc: 'Positions partagées en live avec entrée, résultat et analyse.',
+    src: '/analyse-live.jpg',
+    channel: 'analyse-live',
+    label: 'Sessions live',
+    desc: 'Analyses en direct avec partage d\'écran devant la communauté.',
   },
   {
     src: '/analyse-fondamentales.png',
@@ -25,12 +31,6 @@ const screenshots = [
     channel: 'forex-profits',
     label: 'Résultats des membres',
     desc: 'Les membres partagent leurs gains. La preuve par les faits.',
-  },
-  {
-    src: '/analyse-live.jpg',
-    channel: 'analyse-live',
-    label: 'Sessions live',
-    desc: 'Analyses en direct avec partage d\'écran devant la communauté.',
   },
 ]
 
@@ -113,15 +113,10 @@ export default function Community() {
           </p>
         </motion.div>
 
-        {/* Grid: 3 top + 2 bottom centered */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-          {screenshots.slice(0, 3).map((item, i) => (
+        {/* Grid: 5 cards in one row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {screenshots.map((item, i) => (
             <Card key={item.channel} item={item} i={i} />
-          ))}
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-          {screenshots.slice(3).map((item, i) => (
-            <Card key={item.channel} item={item} i={i + 3} />
           ))}
         </div>
 

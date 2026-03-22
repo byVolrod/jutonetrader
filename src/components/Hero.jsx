@@ -67,22 +67,19 @@ export default function Hero() {
                 </a>
               </div>
 
-              {/* Stats row */}
-              <div className="flex items-center gap-7 pt-7" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-                <div>
-                  <div className="text-2xl font-black text-white">93%</div>
-                  <div className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.38)' }}>Win rate</div>
+              {/* Trust line */}
+              <div className="flex items-center gap-3 pt-7" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                <div className="flex -space-x-2">
+                  {['#d4af37', '#10b981', '#a5b4fc', '#e8c94a'].map((c, i) => (
+                    <div key={i} className="w-7 h-7 rounded-full border-2 flex items-center justify-center text-[10px] font-bold"
+                      style={{ background: `${c}20`, borderColor: '#0a0a0f', color: c }}>
+                      {['M', 'K', 'S', 'A'][i]}
+                    </div>
+                  ))}
                 </div>
-                <div className="w-px h-9" style={{ background: 'rgba(255,255,255,0.08)' }} />
-                <div>
-                  <div className="text-2xl font-black" style={{ color: '#d4af37' }}>5.0★</div>
-                  <div className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.38)' }}>Note Whop</div>
-                </div>
-                <div className="w-px h-9" style={{ background: 'rgba(255,255,255,0.08)' }} />
-                <div>
-                  <div className="text-2xl font-black" style={{ color: '#10b981' }}>84+</div>
-                  <div className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.38)' }}>Membres actifs</div>
-                </div>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                  <span className="text-white font-semibold">84+ traders</span> ont déjà rejoint la communauté — notée <span style={{ color: '#d4af37' }}>5.0★</span> sur Whop
+                </p>
               </div>
             </motion.div>
 

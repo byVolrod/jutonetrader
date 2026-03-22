@@ -62,7 +62,7 @@ const plans = [
       'Accès VIP prioritaire & support 24/7',
       'Coaching personnalisé (bientôt disponible)',
     ],
-    link: 'https://whop.com/justonetrader/',
+    link: 'https://whop.com/joined/justonetrader/products/jot-premium/',
     cta: 'Devenir Premium',
     popular: true,
   },
