@@ -12,8 +12,8 @@ const faqs = [
     a: 'Oui. Le plan gratuit est conçu pour ceux qui commencent. Chaque signal est accompagné d\'une explication structurée : zone d\'entrée, stop-loss, take-profit et raisonnement. Pas de jargon inutile — juste ce qu\'il faut pour comprendre et agir. La communauté Discord est bienveillante et accessible à tout moment.',
   },
   {
-    q: 'Comment fonctionnent les signaux de trading Forex ?',
-    a: 'Les signaux arrivent directement dans votre salon Discord privé. Chaque alerte inclut le contexte de marché (analyse technique + fondamentale), le point d\'entrée, le stop-loss, les objectifs de prise de profits et la taille de position recommandée. Rien n\'est envoyé sans justification.',
+    q: 'Comment fonctionnent les analyses et prises de positions ?',
+    a: 'Les analyses arrivent directement dans votre salon Discord privé. Chaque alerte inclut le contexte de marché (analyse technique + fondamentale), le point d\'entrée, le stop-loss, les objectifs de prise de profits et la taille de position recommandée. Rien n\'est envoyé sans justification.',
   },
   {
     q: 'Quel plan choisir pour débuter ?',

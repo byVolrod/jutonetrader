@@ -4,7 +4,7 @@ import { Zap, Target, BookOpen, Users } from 'lucide-react'
 const services = [
   {
     icon: Zap,
-    title: 'Signaux en temps réel',
+    title: 'Analyses en temps réel',
     description: 'Entrée, stop-loss, take-profit — directement dans Discord avec le contexte. Chaque alerte est justifiée.',
     tag: 'Live',
     color: '#d4af37',
