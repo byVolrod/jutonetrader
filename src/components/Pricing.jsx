@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Check, Sparkles } from 'lucide-react'
+import { Check, Sparkles, Lock } from 'lucide-react'
 
 const plans = [
   {
@@ -22,10 +22,9 @@ const plans = [
     emoji: '🏦',
     price: '24,99€',
     period: '/mois',
-    description: 'Structure, discipline et signaux exclusifs.',
+    description: 'Structure, discipline et prises de positions exclusives.',
     features: [
-      'Tout du plan Gratuit',
-      'Signaux DTP exclusifs avec contexte',
+      'Analyses et prises de positions DTP',
       'Analyses techniques approfondies',
       'Support prioritaire',
     ],
@@ -40,8 +39,7 @@ const plans = [
     period: '/mois',
     description: 'Bitcoin, altcoins, on-chain — crypto en profondeur.',
     features: [
-      'Tout du plan DTP',
-      'Signaux Crypto exclusifs temps réel',
+      'Analyses et prises de positions Crypto',
       'Analyses on-chain & fondamentales',
       'Alertes Bull/Bear market',
     ],
@@ -54,13 +52,13 @@ const plans = [
     emoji: '💎',
     price: '59,99€',
     period: '/mois',
-    description: 'L\'accès total. Signaux tous marchés, analyses premium.',
+    description: 'L\'accès total. Tous marchés, analyses premium.',
     features: [
-      'Tous les signaux Forex, Indices & Crypto',
+      'Analyses et prises de positions Forex, Indices & Crypto',
       'Setups exclusifs pre-market quotidiens',
       'Analyses fondamentales hebdomadaires',
       'Accès VIP prioritaire & support 24/7',
-      'Coaching personnalisé (bientôt)',
+      { text: 'Coaching personnalisé', soon: true },
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-premium/',
     cta: 'Devenir Premium',
@@ -129,12 +127,28 @@ export default function Pricing() {
               </div>
 
               <ul className="space-y-2.5 mb-8 flex-1">
-                {plan.features.map(f => (
-                  <li key={f} className="flex items-start gap-2.5 text-xs">
-                    <Check size={12} className="mt-0.5 shrink-0" style={{ color: plan.popular ? '#d4af37' : '#10b981' }} />
-                    <span style={{ color: 'rgba(255,255,255,0.55)' }}>{f}</span>
-                  </li>
-                ))}
+                {plan.features.map((f, fi) => {
+                  const isSoon = typeof f === 'object' && f.soon
+                  const text = isSoon ? f.text : f
+                  return (
+                    <li key={fi} className="flex items-start gap-2.5 text-xs">
+                      {isSoon
+                        ? <Lock size={12} className="mt-0.5 shrink-0" style={{ color: 'rgba(255,255,255,0.2)' }} />
+                        : <Check size={12} className="mt-0.5 shrink-0" style={{ color: plan.popular ? '#d4af37' : '#10b981' }} />
+                      }
+                      <span style={isSoon
+                        ? { color: 'rgba(255,255,255,0.25)', textDecoration: 'line-through' }
+                        : { color: 'rgba(255,255,255,0.55)' }
+                      }>
+                        {text}
+                        {isSoon && <span className="ml-1.5 no-underline text-[10px] font-semibold px-1.5 py-0.5 rounded-full"
+                          style={{ background: 'rgba(212,175,55,0.1)', color: '#d4af37', textDecoration: 'none', display: 'inline-block' }}>
+                          Bientôt
+                        </span>}
+                      </span>
+                    </li>
+                  )
+                })}
               </ul>
 
               <a href={plan.link} target="_blank" rel="noopener noreferrer"
