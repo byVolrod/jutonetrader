@@ -1,146 +1,112 @@
 import { motion } from 'framer-motion'
-import { Flame, BookOpen, TrendingUp, Users, Bitcoin } from 'lucide-react'
+import { Flame, BookOpen, TrendingUp } from 'lucide-react'
 
-const timeline = [
-  {
-    icon: Flame,
-    year: '2021',
-    title: 'La passion commence',
-    desc: 'Découverte de la finance et des marchés financiers. Exploration de toutes les approches : copytrading, investissements passifs, DCA crypto.',
-  },
-  {
-    icon: Bitcoin,
-    year: 'Nov 2024',
-    title: 'Investissement crypto',
-    desc: 'Début de l\'investissement en crypto avec un mentor spécialisé. Apprentissage des cycles de marché, de l\'on-chain et des fondamentaux crypto.',
-  },
-  {
-    icon: BookOpen,
-    year: 'Mai 2025',
-    title: '1er mentor trading — Analyse technique',
-    desc: 'Début du trading sérieux avec un premier mentor spécialisé en analyse technique. Apprentissage des bases structurelles du marché.',
-  },
-  {
-    icon: Users,
-    year: 'Jan 2026',
-    title: '2ème mentor trading — Fondamentale & Technique',
-    desc: 'Élargissement de la méthode avec un second mentor combinant analyse fondamentale et technique pour une vision complète des marchés.',
-  },
-  {
-    icon: TrendingUp,
-    year: 'Aujourd\'hui',
-    title: 'De breakeven à rentable',
-    desc: 'En progression constante avec 93% de winrate. Je partage chaque setup et chaque analyse en toute transparence avec la communauté.',
-  },
-]
-
-const pillars = [
-  { value: '5+', label: 'Ans dans la finance', color: '#d4af37' },
-  { value: '3', label: 'Mentors actifs', color: '#10b981' },
-  { value: '84+', label: 'Membres dans la communauté', color: '#d4af37' },
+const milestones = [
+  { icon: Flame, year: '2021', label: 'Début dans la finance', color: '#d4af37' },
+  { icon: BookOpen, year: '2024', label: '1er mentor crypto', color: '#10b981' },
+  { icon: TrendingUp, year: '2025', label: 'Trading avec mentors AT & AF', color: '#d4af37' },
 ]
 
 export default function About() {
   return (
-    <section id="methode" className="py-14 sm:py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-5 gap-12 xl:gap-20 items-start">
+    <section id="parcours" className="py-16 sm:py-24 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 50% 60% at 30% 50%, rgba(212,175,55,0.04), transparent)' }} />
 
-          {/* Left — Text block */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* Photo side */}
           <motion.div
-            className="lg:col-span-2 lg:sticky lg:top-28"
-            initial={{ opacity: 0, x: -24 }}
+            className="relative"
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase"
-              style={{ border: '1px solid rgba(212,175,55,0.3)', background: 'rgba(212,175,55,0.05)', color: '#d4af37' }}>
-              Mon parcours
-            </div>
+            <div className="absolute -inset-4 rounded-3xl blur-3xl pointer-events-none"
+              style={{ background: 'rgba(212,175,55,0.06)' }} />
+            <div className="relative rounded-2xl overflow-hidden"
+              style={{ border: '1px solid rgba(255,255,255,0.08)', aspectRatio: '4/5', maxHeight: 520 }}>
+              <img
+                src="/founder.jpg"
+                alt="Fondateur de JustOneTrader"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: '60% 30%' }}
+                draggable="false"
+              />
+              <div className="absolute inset-0 pointer-events-none"
+                style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.8) 0%, transparent 50%)' }} />
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-5">
-              La transparence
-              <br />
-              <span style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                avant tout.
-              </span>
-            </h2>
-
-            <p className="text-base leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              Passionné de finance depuis <strong className="text-white">2021</strong>, j'ai tout exploré — copytrading, investissements passifs, DCA. En <strong className="text-white">novembre 2024</strong> je démarre l'investissement crypto avec un mentor dédié, puis en <strong className="text-white">mai 2025</strong> je me lance dans le trading avec un 1er mentor en analyse technique, et en <strong className="text-white">janvier 2026</strong> mon 2ème mentor en fondamentale & technique.
-            </p>
-
-            {/* Key stats */}
-            <div className="space-y-3">
-              {pillars.map((p, i) => (
-                <motion.div
-                  key={p.label}
-                  className="flex items-center gap-4 rounded-2xl p-4"
-                  style={{ background: '#12121a', border: '1px solid rgba(255,255,255,0.06)' }}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.08 }}
-                >
-                  <div className="text-2xl font-black w-14 shrink-0" style={{ color: p.color }}>{p.value}</div>
-                  <div className="w-px h-8 shrink-0" style={{ background: 'rgba(255,255,255,0.06)' }} />
-                  <div className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>{p.label}</div>
-                </motion.div>
-              ))}
+              {/* Overlay badge */}
+              <div className="absolute bottom-5 left-5 right-5">
+                <div className="flex items-center gap-3">
+                  {milestones.map((m, i) => (
+                    <motion.div
+                      key={m.year}
+                      className="flex-1 rounded-xl p-3 text-center"
+                      style={{ background: 'rgba(10,10,15,0.7)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.08)' }}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + i * 0.1 }}
+                    >
+                      <div className="text-lg font-black" style={{ color: m.color }}>{m.year}</div>
+                      <div className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>{m.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right — Timeline */}
+          {/* Text side */}
           <motion.div
-            className="lg:col-span-3"
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-4 top-4 bottom-4 w-px"
-                style={{ background: 'linear-gradient(to bottom, rgba(212,175,55,0.5), rgba(212,175,55,0.03))' }} />
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase"
+              style={{ border: '1px solid rgba(212,175,55,0.3)', background: 'rgba(212,175,55,0.05)', color: '#d4af37' }}>
+              Qui suis-je
+            </div>
 
-              <div className="space-y-5">
-                {timeline.map((item, i) => (
-                  <motion.div
-                    key={item.year}
-                    className="relative flex gap-5 pl-12"
-                    initial={{ opacity: 0, x: 16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    {/* Icon dot */}
-                    <div className="absolute left-0 w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-                      style={{
-                        background: i === timeline.length - 1 ? 'rgba(212,175,55,0.18)' : '#12121a',
-                        border: `1px solid ${i === timeline.length - 1 ? 'rgba(212,175,55,0.5)' : 'rgba(255,255,255,0.08)'}`,
-                        boxShadow: i === timeline.length - 1 ? '0 0 12px rgba(212,175,55,0.2)' : 'none',
-                      }}>
-                      <item.icon size={15} style={{ color: i === timeline.length - 1 ? '#d4af37' : 'rgba(255,255,255,0.3)' }} />
-                    </div>
+            <h2 className="text-3xl sm:text-4xl font-black leading-tight mb-6">
+              Un trader en progression,
+              <br />
+              <span style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                pas un vendeur de rêve.
+              </span>
+            </h2>
 
-                    <div className="rounded-2xl p-4 flex-1 transition-all"
-                      style={{
-                        background: i === timeline.length - 1 ? 'rgba(212,175,55,0.04)' : '#12121a',
-                        border: `1px solid ${i === timeline.length - 1 ? 'rgba(212,175,55,0.18)' : 'rgba(255,255,255,0.06)'}`,
-                      }}>
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full"
-                          style={{ background: 'rgba(212,175,55,0.1)', color: '#d4af37' }}>
-                          {item.year}
-                        </span>
-                        <span className="text-white font-semibold text-sm">{item.title}</span>
-                      </div>
-                      <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="space-y-4 mb-8">
+              <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                Passionné de finance depuis <strong className="text-white">2021</strong>, j'ai tout testé — copytrading, DCA, investissements passifs. En <strong className="text-white">2024</strong>, je me forme sérieusement avec un premier mentor en crypto, puis en <strong className="text-white">2025</strong> avec deux mentors spécialisés en analyse technique et fondamentale.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                Aujourd'hui, je partage chaque trade, chaque analyse, chaque résultat — gagnant ou perdant — en toute transparence avec la communauté. Pas de faux screenshots, pas de résultats triés. Juste la réalité d'un trader qui progresse et qui documente tout.
+              </p>
+            </div>
+
+            {/* Stats row */}
+            <div className="flex items-center gap-6">
+              {[
+                { value: '5+', label: 'Ans dans la finance', color: '#d4af37' },
+                { value: '3', label: 'Mentors', color: '#10b981' },
+                { value: '84+', label: 'Membres', color: '#d4af37' },
+              ].map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + i * 0.08 }}
+                >
+                  <div className="text-2xl font-black" style={{ color: s.color }}>{s.value}</div>
+                  <div className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{s.label}</div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
