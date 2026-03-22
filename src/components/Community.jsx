@@ -1,49 +1,87 @@
-import { useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Hash, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Hash, MessageSquare } from 'lucide-react'
 
 const screenshots = [
   {
     src: '/analyse-technique.png',
     channel: 'analyse-technique',
     label: 'Analyses graphiques',
-    desc: 'Chaque setup est expliqué — structure, zone d\'entrée, SL, TP. Rien n\'est laissé au hasard.',
+    desc: 'Chaque setup est expliqué — structure, zone d\'entrée, SL, TP.',
   },
   {
     src: '/jot-trades.png',
     channel: 'jot-trades',
     label: 'Trades en temps réel',
-    desc: 'Les positions sont partagées en live avec entrée, résultat et analyse post-trade.',
+    desc: 'Positions partagées en live avec entrée, résultat et analyse.',
   },
   {
     src: '/analyse-fondamentales.png',
     channel: 'analyse-fondamentale',
     label: 'Weekly & Daily FX Recap',
-    desc: 'Analyses macro et fondamentales publiées chaque semaine — contexte, drivers, biais directionnels.',
+    desc: 'Analyses macro et fondamentales publiées chaque semaine.',
   },
   {
     src: '/profits.png',
     channel: 'forex-profits',
     label: 'Résultats des membres',
-    desc: 'Les membres partagent leurs gains. La preuve que la méthode fonctionne.',
+    desc: 'Les membres partagent leurs gains. La preuve par les faits.',
   },
   {
     src: '/analyse-live.jpg',
     channel: 'analyse-live',
     label: 'Sessions live',
-    desc: 'Analyses en direct avec partage d\'écran devant les membres de la communauté.',
+    desc: 'Analyses en direct avec partage d\'écran devant la communauté.',
   },
 ]
 
+function Card({ item, i }) {
+  return (
+    <motion.div
+      className="rounded-2xl overflow-hidden group"
+      style={{
+        border: '1px solid rgba(255,255,255,0.07)',
+        background: '#0e0e18',
+      }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.08 }}
+      whileHover={{ borderColor: 'rgba(212,175,55,0.2)', transition: { duration: 0.2 } }}
+    >
+      {/* Title bar */}
+      <div className="flex items-center gap-2.5 px-4 py-3"
+        style={{ background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <Hash size={14} style={{ color: 'rgba(255,255,255,0.3)' }} />
+        <span className="text-sm font-semibold text-white">{item.channel}</span>
+      </div>
+
+      {/* Image */}
+      <div className="relative overflow-hidden" style={{ height: 200 }}>
+        <img
+          src={item.src}
+          alt={item.label}
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+        />
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(to top, #0e0e18 0%, transparent 60%)' }} />
+      </div>
+
+      {/* Caption */}
+      <div className="px-4 py-3.5 flex items-center gap-3">
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+          style={{ background: 'rgba(212,175,55,0.1)' }}>
+          <MessageSquare size={14} style={{ color: '#d4af37' }} />
+        </div>
+        <div>
+          <div className="text-white font-semibold text-sm">{item.label}</div>
+          <p className="text-xs leading-relaxed mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>{item.desc}</p>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 export default function Community() {
-  const scrollRef = useRef(null)
-
-  const scroll = (dir) => {
-    const el = scrollRef.current
-    if (!el) return
-    el.scrollBy({ left: dir * 420, behavior: 'smooth' })
-  }
-
   return (
     <section id="communaute" className="py-14 sm:py-20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
@@ -75,101 +113,16 @@ export default function Community() {
           </p>
         </motion.div>
 
-        {/* Carousel + nav buttons */}
-        <div className="relative mb-10">
-          {/* Left arrow */}
-          <button
-            onClick={() => scroll(-1)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all hidden lg:flex"
-            style={{ background: '#12121a', border: '1px solid rgba(255,255,255,0.1)' }}
-            onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)'}
-            onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'}
-          >
-            <ChevronLeft size={18} style={{ color: 'rgba(255,255,255,0.6)' }} />
-          </button>
-
-          {/* Right arrow */}
-          <button
-            onClick={() => scroll(1)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all hidden lg:flex"
-            style={{ background: '#12121a', border: '1px solid rgba(255,255,255,0.1)' }}
-            onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)'}
-            onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'}
-          >
-            <ChevronRight size={18} style={{ color: 'rgba(255,255,255,0.6)' }} />
-          </button>
-
-          {/* Scroll container */}
-          <div
-            ref={scrollRef}
-            className="flex gap-4 overflow-x-auto pb-2"
-            style={{
-              scrollSnapType: 'x mandatory',
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-            }}
-          >
-            {screenshots.map((item, i) => (
-              <motion.div
-                key={item.channel}
-                className="rounded-2xl overflow-hidden shrink-0"
-                style={{
-                  width: 'clamp(280px, 45vw, 420px)',
-                  scrollSnapAlign: 'start',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  background: '#0e0e18',
-                }}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                {/* Title bar */}
-                <div className="flex items-center gap-2.5 px-4 py-3"
-                  style={{ background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                  <Hash size={14} style={{ color: 'rgba(255,255,255,0.3)' }} />
-                  <span className="text-sm font-semibold text-white">{item.channel}</span>
-                </div>
-
-                {/* Image */}
-                <div className="relative overflow-hidden" style={{ height: 240 }}>
-                  <img
-                    src={item.src}
-                    alt={item.label}
-                    className="w-full h-full object-cover object-top"
-                  />
-                  <div className="absolute inset-0 pointer-events-none"
-                    style={{ background: 'linear-gradient(to top, #0e0e18 0%, transparent 60%)' }} />
-                </div>
-
-                {/* Caption */}
-                <div className="px-4 py-4 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                    style={{ background: 'rgba(212,175,55,0.1)' }}>
-                    <MessageSquare size={14} style={{ color: '#d4af37' }} />
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold text-sm">{item.label}</div>
-                    <p className="text-xs leading-relaxed mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>{item.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-5">
-            {screenshots.map((_, i) => (
-              <button
-                key={i}
-                className="rounded-full transition-all duration-300"
-                style={{ width: 6, height: 6, background: 'rgba(255,255,255,0.2)' }}
-                onMouseEnter={e => e.currentTarget.style.background = '#d4af37'}
-                onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'}
-                onClick={() => scrollRef.current?.scrollTo({ left: i * 436, behavior: 'smooth' })}
-              />
-            ))}
-          </div>
+        {/* Grid: 3 top + 2 bottom centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+          {screenshots.slice(0, 3).map((item, i) => (
+            <Card key={item.channel} item={item} i={i} />
+          ))}
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          {screenshots.slice(3).map((item, i) => (
+            <Card key={item.channel} item={item} i={i + 3} />
+          ))}
         </div>
 
       </div>

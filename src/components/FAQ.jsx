@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: 'Quel plan choisir pour débuter ?',
-    a: 'Commencez par le plan gratuit pour découvrir la méthode et l\'ambiance. Si vous tradez la crypto, JOT - CRYPTO est fait pour vous. Pour un accès complet à tous les marchés (Forex, Indices, Crypto) avec coaching personnalisé, JOT - PREMIUM est le meilleur investissement.',
+    a: 'Commencez par le plan gratuit pour découvrir la méthode et l\'ambiance. Si vous tradez la crypto, JOT - CRYPTO est fait pour vous. Pour un accès complet à tous les marchés (Forex, Indices, Crypto) avec les analyses premium, JOT - PREMIUM est le meilleur investissement.',
   },
   {
     q: 'Puis-je changer de plan à tout moment ?',

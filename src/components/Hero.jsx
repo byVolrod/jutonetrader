@@ -40,7 +40,7 @@ export default function Hero() {
               </h1>
 
               <p className="text-lg leading-relaxed mb-9 max-w-lg" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                Signaux Forex, Indices et Crypto en temps réel. Analyse technique et fondamentale, gestion du risque, coaching personnalisé — et une communauté de traders qui progressent ensemble, sans bullshit.
+                Signaux Forex, Indices et Crypto en temps réel. Analyse technique et fondamentale, gestion du risque — et une communauté de traders qui progressent ensemble, sans bullshit.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 mb-10">

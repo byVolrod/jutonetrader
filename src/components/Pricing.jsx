@@ -13,6 +13,7 @@ const plans = [
       'Analyses de marché générales',
       'Contenu éducatif Forex & Indices',
     ],
+    link: 'https://whop.com/joined/justonetrader/products/jot-trading/',
     cta: 'Commencer gratuitement',
     popular: false,
   },
@@ -28,6 +29,7 @@ const plans = [
       'Analyses techniques approfondies',
       'Support prioritaire',
     ],
+    link: 'https://whop.com/joined/justonetrader/products/jot-dtp/',
     cta: 'Choisir DTP',
     popular: false,
   },
@@ -43,6 +45,7 @@ const plans = [
       'Analyses on-chain & fondamentales',
       'Alertes Bull/Bear market',
     ],
+    link: 'https://whop.com/joined/justonetrader/products/jot-crypto/',
     cta: 'Choisir Crypto',
     popular: false,
   },
@@ -51,14 +54,15 @@ const plans = [
     emoji: '💎',
     price: '59,99€',
     period: '/mois',
-    description: 'L\'accès total. Coaching, signaux tous marchés — la formule des traders qui performent.',
+    description: 'L\'accès total. Signaux tous marchés, analyses premium — la formule des traders qui performent.',
     features: [
       'Tous les signaux Forex, Indices & Crypto',
-      'Coaching personnalisé individuel',
       'Setups exclusifs pre-market quotidiens',
       'Analyses fondamentales hebdomadaires',
       'Accès VIP prioritaire & support 24/7',
+      'Coaching personnalisé (bientôt disponible)',
     ],
+    link: 'https://whop.com/justonetrader/',
     cta: 'Devenir Premium',
     popular: true,
   },
@@ -141,7 +145,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="https://whop.com/justonetrader"
+                href={plan.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center font-bold py-3 rounded-xl text-sm transition-all"

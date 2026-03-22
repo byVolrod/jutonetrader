@@ -20,7 +20,7 @@ const testimonials = [
     name: 'Karim B.',
     role: 'Membre Premium',
     date: 'Janvier 2026',
-    content: 'J\'ai testé plusieurs groupes de trading avant JOT — c\'est incomparable. La transparence sur les performances réelles Pilot, le coaching personnalisé, la communauté Discord qui challenge vraiment. Je progresse plus vite que seul.',
+    content: 'J\'ai testé plusieurs groupes de trading avant JOT — c\'est incomparable. La transparence sur les performances réelles Pilot, les analyses détaillées, la communauté Discord qui challenge vraiment. Je progresse plus vite que seul.',
     initial: 'K',
   },
   {

@@ -29,7 +29,7 @@ export default function Footer() {
               JOT
             </a>
             <p className="text-sm leading-relaxed max-w-xs mb-6" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              Anticipe les marchés, ne les subissez plus. Coaching trading FX, Indices & Crypto avec une méthode rigoureuse et une transparence totale.
+              Anticipe les marchés, ne les subis plus. Trading FX, Indices & Crypto avec une méthode rigoureuse et une transparence totale.
             </p>
             <a
               href="https://whop.com/justonetrader"
