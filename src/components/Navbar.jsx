@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 const links = [
-  { label: 'Accueil', href: '#accueil', id: 'accueil' },
-  { label: 'Parcours', href: '#methode', id: 'methode' },
-  { label: 'Performances', href: '#performances', id: 'performances' },
+  { label: 'Communauté', href: '#communaute', id: 'communaute' },
   { label: 'Services', href: '#services', id: 'services' },
   { label: 'Tarifs', href: '#tarifs', id: 'tarifs' },
   { label: 'Avis', href: '#temoignages', id: 'temoignages' },
@@ -14,7 +12,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [active, setActive] = useState('accueil')
+  const [active, setActive] = useState('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -47,111 +45,60 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-[72px]">
-
-          {/* Logo + live dot */}
-          <a href="#accueil" className="flex items-center gap-2 group">
-            <span className="text-2xl sm:text-3xl font-black tracking-tight text-white transition-opacity group-hover:opacity-90">
-              JOT
-            </span>
-            <span
-              className="w-2 h-2 rounded-full"
-              style={{ background: '#10b981', boxShadow: '0 0 6px #10b981', animation: 'pulse 2s ease-in-out infinite' }}
-            />
+          <a href="#" className="flex items-center gap-2 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <span className="text-2xl sm:text-3xl font-black tracking-tight text-white">JOT</span>
+            <span className="w-2 h-2 rounded-full" style={{ background: '#10b981', boxShadow: '0 0 6px #10b981', animation: 'pulse 2s ease-in-out infinite' }} />
           </a>
 
-          {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-1">
             {links.map(link => {
               const isActive = active === link.id
               return (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <a key={link.href} href={link.href}
                   className="relative px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-200"
                   style={{ color: isActive ? 'white' : 'rgba(255,255,255,0.45)' }}
                   onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = 'rgba(255,255,255,0.85)' }}
                   onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = 'rgba(255,255,255,0.45)' }}
                 >
                   {link.label}
-                  {isActive && (
-                    <span
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
-                      style={{ background: '#d4af37' }}
-                    />
-                  )}
+                  {isActive && <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full" style={{ background: '#d4af37' }} />}
                 </a>
               )
             })}
           </div>
 
-          {/* CTA button */}
           <div className="hidden md:block">
-            <a
-              href="https://whop.com/justonetrader"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a href="https://whop.com/justonetrader" target="_blank" rel="noopener noreferrer"
               className="font-bold px-6 py-2.5 rounded-full text-sm transition-all duration-300"
-              style={{
-                background: 'linear-gradient(135deg, #d4af37, #e8c94a)',
-                color: '#0a0a0f',
-                boxShadow: '0 0 20px rgba(212,175,55,0.25)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.boxShadow = '0 0 40px rgba(212,175,55,0.5)'
-                e.currentTarget.style.transform = 'translateY(-1px)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.boxShadow = '0 0 20px rgba(212,175,55,0.25)'
-                e.currentTarget.style.transform = 'translateY(0)'
-              }}
+              style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#0a0a0f', boxShadow: '0 0 20px rgba(212,175,55,0.25)' }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 0 40px rgba(212,175,55,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 0 20px rgba(212,175,55,0.25)'; e.currentTarget.style.transform = 'translateY(0)' }}
             >
               Rejoindre
             </a>
           </div>
 
-          {/* Mobile burger */}
-          <button onClick={() => setOpen(!open)} className="md:hidden text-white p-2">
+          <button onClick={() => setOpen(!open)} className="lg:hidden text-white p-2">
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div style={{
-          background: 'rgba(10,10,15,0.97)',
-          backdropFilter: 'blur(24px)',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
-        }}>
+        <div style={{ background: 'rgba(10,10,15,0.97)', backdropFilter: 'blur(24px)', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
           <div className="px-4 py-5 space-y-1">
-            {links.map(link => {
-              const isActive = active === link.id
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-colors"
-                  style={{
-                    color: isActive ? 'white' : 'rgba(255,255,255,0.5)',
-                    background: isActive ? 'rgba(255,255,255,0.04)' : 'transparent',
-                  }}
-                >
-                  {link.label}
-                  {isActive && (
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#d4af37' }} />
-                  )}
-                </a>
-              )
-            })}
-            <div className="pt-3">
-              <a
-                href="https://whop.com/justonetrader"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center font-bold py-3 rounded-full text-sm"
-                style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#0a0a0f' }}
+            {links.map(link => (
+              <a key={link.href} href={link.href} onClick={() => setOpen(false)}
+                className="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium"
+                style={{ color: active === link.id ? 'white' : 'rgba(255,255,255,0.5)', background: active === link.id ? 'rgba(255,255,255,0.04)' : 'transparent' }}
               >
+                {link.label}
+              </a>
+            ))}
+            <div className="pt-3">
+              <a href="https://whop.com/justonetrader" target="_blank" rel="noopener noreferrer"
+                className="block text-center font-bold py-3 rounded-full text-sm"
+                style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#0a0a0f' }}>
                 Rejoindre
               </a>
             </div>

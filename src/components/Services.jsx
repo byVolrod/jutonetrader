@@ -5,28 +5,28 @@ const services = [
   {
     icon: Zap,
     title: 'Signaux en temps réel',
-    description: 'Entrée précise, stop-loss et take-profit directement dans votre Discord privé — avec le contexte de marché. Chaque alerte est justifiée, jamais lancée à l\'aveugle.',
+    description: 'Entrée, stop-loss, take-profit — directement dans Discord avec le contexte. Chaque alerte est justifiée.',
     tag: 'Live',
     color: '#d4af37',
   },
   {
-    icon: Target,
-    title: 'Gestion du risque',
-    description: 'Chaque setup intègre une gestion de position adaptée à votre capital. Parce que durer en trading, c\'est d\'abord une question de risque maîtrisé.',
-    tag: 'Risk',
+    icon: BookOpen,
+    title: 'Analyse AT & Fondamentale',
+    description: 'On combine technique et macro pour comprendre pourquoi le marché bouge — pas juste comment.',
+    tag: 'Méthode',
     color: '#10b981',
   },
   {
-    icon: BookOpen,
-    title: 'Analyse AT & AF',
-    description: 'Analyse technique structurelle et fondamentale macro combinées. Comprenez pourquoi le marché bouge — pas seulement comment il bouge.',
-    tag: 'Méthode',
+    icon: Target,
+    title: 'Gestion du risque',
+    description: 'Chaque setup a une gestion de position adaptée. Durer en trading, c\'est d\'abord maîtriser son risque.',
+    tag: 'Risk',
     color: '#d4af37',
   },
   {
     icon: Users,
-    title: 'Communauté de traders',
-    description: 'Un Discord actif où chaque membre partage, challenge et progresse. Pas de place pour la médiocrité — juste des traders sérieux qui veulent performer.',
+    title: 'Communauté active',
+    description: 'Un Discord où chaque membre partage, challenge et progresse. Des traders sérieux, pas de bruit.',
     tag: 'Discord',
     color: '#10b981',
   },
@@ -34,56 +34,45 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-14 sm:py-20">
+    <section id="services" className="py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
         <motion.div
-          className="mb-12"
+          className="text-center max-w-2xl mx-auto mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-semibold tracking-widest uppercase"
-                style={{ border: '1px solid rgba(212,175,55,0.3)', background: 'rgba(212,175,55,0.05)', color: '#d4af37' }}>
-                Ce qu'on offre
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight">
-                Trader avec méthode,
-                <br />
-                <span style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  pas au feeling.
-                </span>
-              </h2>
-            </div>
-            <p className="text-base lg:max-w-xs lg:text-right" style={{ color: 'rgba(255,255,255,0.45)' }}>
-              Chaque outil est conçu pour vous donner un avantage réel sur les marchés Forex, Indices et Crypto.
-            </p>
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-semibold tracking-widest uppercase"
+            style={{ border: '1px solid rgba(212,175,55,0.3)', background: 'rgba(212,175,55,0.05)', color: '#d4af37' }}>
+            Ce qu'on offre
           </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4">
+            Tout ce qu'il faut
+            <br />
+            <span style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              pour progresser.
+            </span>
+          </h2>
         </motion.div>
 
-        {/* Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
-              className="group relative rounded-2xl p-6 cursor-default transition-all duration-300 overflow-hidden flex flex-col"
+              className="group relative rounded-2xl p-6 cursor-default overflow-hidden flex flex-col"
               style={{ background: '#0e0e18', border: '1px solid rgba(255,255,255,0.07)' }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              whileHover={{ borderColor: `${s.color}28`, y: -4 }}
+              whileHover={{ borderColor: `${s.color}28`, y: -4, transition: { duration: 0.2 } }}
             >
-              {/* Ghost number */}
               <div className="absolute -bottom-2 -right-1 text-[6rem] font-black pointer-events-none select-none leading-none"
                 style={{ color: 'rgba(255,255,255,0.022)' }}>
                 {String(i + 1).padStart(2, '0')}
               </div>
 
-              {/* Top row: icon + tag */}
               <div className="flex items-start justify-between mb-5">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center"
                   style={{ background: `${s.color}12` }}>
@@ -98,7 +87,6 @@ export default function Services() {
               <h3 className="text-white font-bold text-base mb-2.5">{s.title}</h3>
               <p className="text-sm leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.42)' }}>{s.description}</p>
 
-              {/* Bottom accent line on hover */}
               <div className="mt-5 h-px w-0 group-hover:w-full transition-all duration-500"
                 style={{ background: `linear-gradient(90deg, ${s.color}60, transparent)` }} />
             </motion.div>

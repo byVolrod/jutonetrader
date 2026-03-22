@@ -44,3 +44,23 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #d4af37;
 }
+
+/* Anti-copy protection */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection on inputs/textareas */
+input, textarea, button, a {
+  -webkit-user-select: auto;
+  user-select: auto;
+}

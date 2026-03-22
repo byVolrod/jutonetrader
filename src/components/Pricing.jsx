@@ -7,7 +7,7 @@ const plans = [
     emoji: '📈',
     price: 'Gratuit',
     period: '',
-    description: 'Accès immédiat. Zéro engagement. Testez la méthode et rejoignez la communauté.',
+    description: 'Accès immédiat. Zéro engagement. Testez la méthode.',
     features: [
       'Accès au salon communauté Discord',
       'Analyses de marché générales',
@@ -22,7 +22,7 @@ const plans = [
     emoji: '🏦',
     price: '24,99€',
     period: '/mois',
-    description: 'Pour les traders qui veulent structure, discipline et signaux exclusifs.',
+    description: 'Structure, discipline et signaux exclusifs.',
     features: [
       'Tout du plan Gratuit',
       'Signaux DTP exclusifs avec contexte',
@@ -38,7 +38,7 @@ const plans = [
     emoji: '₿',
     price: '39,99€',
     period: '/mois',
-    description: 'Bitcoin, altcoins, on-chain — les marchés crypto analysés en profondeur.',
+    description: 'Bitcoin, altcoins, on-chain — crypto en profondeur.',
     features: [
       'Tout du plan DTP',
       'Signaux Crypto exclusifs temps réel',
@@ -54,13 +54,13 @@ const plans = [
     emoji: '💎',
     price: '59,99€',
     period: '/mois',
-    description: 'L\'accès total. Signaux tous marchés, analyses premium — la formule des traders qui performent.',
+    description: 'L\'accès total. Signaux tous marchés, analyses premium.',
     features: [
       'Tous les signaux Forex, Indices & Crypto',
       'Setups exclusifs pre-market quotidiens',
       'Analyses fondamentales hebdomadaires',
       'Accès VIP prioritaire & support 24/7',
-      'Coaching personnalisé (bientôt disponible)',
+      'Coaching personnalisé (bientôt)',
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-premium/',
     cta: 'Devenir Premium',
@@ -70,7 +70,7 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="tarifs" className="py-14 sm:py-20 relative overflow-hidden">
+    <section id="tarifs" className="py-16 sm:py-24 relative overflow-hidden">
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(212,175,55,0.05), transparent)' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -82,14 +82,14 @@ export default function Pricing() {
         >
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-semibold tracking-widest uppercase"
             style={{ border: '1px solid rgba(212,175,55,0.3)', background: 'rgba(212,175,55,0.05)', color: '#d4af37' }}>
-            Nos offres
+            Tarifs
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4">
-            Commencez
+            Commence
             <span style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}> gratuitement.</span>
           </h2>
           <p className="text-base max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Un plan pour chaque étape de votre progression.
+            Pas d'engagement. Upgrade quand tu veux, annule quand tu veux.
           </p>
         </motion.div>
 
@@ -99,12 +99,8 @@ export default function Pricing() {
               key={plan.name}
               className="relative flex flex-col rounded-2xl p-6"
               style={{
-                background: plan.popular
-                  ? 'linear-gradient(160deg, rgba(212,175,55,0.09), #0e0e18 60%)'
-                  : '#0e0e18',
-                border: plan.popular
-                  ? '1px solid rgba(212,175,55,0.35)'
-                  : '1px solid rgba(255,255,255,0.07)',
+                background: plan.popular ? 'linear-gradient(160deg, rgba(212,175,55,0.09), #0e0e18 60%)' : '#0e0e18',
+                border: plan.popular ? '1px solid rgba(212,175,55,0.35)' : '1px solid rgba(255,255,255,0.07)',
               }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +115,6 @@ export default function Pricing() {
                 </div>
               )}
 
-              {/* Plan name */}
               <div className="mb-5">
                 <div className="flex items-center gap-2 mb-2">
                   <span>{plan.emoji}</span>
@@ -128,13 +123,11 @@ export default function Pricing() {
                 <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>{plan.description}</p>
               </div>
 
-              {/* Price */}
               <div className="mb-6 pb-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                 <span className="text-3xl font-black text-white">{plan.price}</span>
                 <span className="text-sm ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{plan.period}</span>
               </div>
 
-              {/* Features */}
               <ul className="space-y-2.5 mb-8 flex-1">
                 {plan.features.map(f => (
                   <li key={f} className="flex items-start gap-2.5 text-xs">
@@ -144,10 +137,7 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href={plan.link}
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href={plan.link} target="_blank" rel="noopener noreferrer"
                 className="block text-center font-bold py-3 rounded-xl text-sm transition-all"
                 style={plan.popular
                   ? { background: 'linear-gradient(90deg, #d4af37, #e8c94a)', color: '#0a0a0f', boxShadow: '0 0 30px rgba(212,175,55,0.2)' }
