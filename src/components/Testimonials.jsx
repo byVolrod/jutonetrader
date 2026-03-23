@@ -86,7 +86,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-3">
               <Stars />
               <span className="text-white font-black text-xl">5.0</span>
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.35)' }}>· 8 avis vérifiés sur Whop</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.35)' }}>· 12 avis vérifiés sur Whop</span>
             </div>
           </div>
         </motion.div>
@@ -117,7 +117,7 @@ export default function Testimonials() {
             onMouseEnter={e => e.currentTarget.style.color = '#d4af37'}
             onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
           >
-            Voir les 8 avis sur Whop →
+            Voir les 12 avis sur Whop →
           </a>
         </motion.div>
       </div>
