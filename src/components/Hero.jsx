@@ -24,7 +24,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#10b981', animation: 'pulse 2s infinite' }} />
-            Signaux Live · Analyses · Communauté
+            Méthode · Analyses · Communauté
           </motion.div>
 
           {/* Headline */}
