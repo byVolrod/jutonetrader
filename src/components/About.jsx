@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion'
-import { Flame, Bitcoin, TrendingUp, Users } from 'lucide-react'
-
 const milestones = [
-  { icon: Flame, year: '2021', label: 'Passion finance', color: '#d4af37' },
-  { icon: Bitcoin, year: '2024', label: 'Mentor crypto', color: '#10b981' },
-  { icon: TrendingUp, year: '2025', label: 'Mentors AT & AF', color: '#d4af37' },
-  { icon: Users, year: '2026', label: 'Communauté JOT', color: '#10b981' },
+  { year: '2021', label: 'Passion finance' },
+  { year: '2024', label: 'Mentor crypto' },
+  { year: '2025', label: 'Mentors AT & AF' },
+  { year: '2026', label: 'Communauté JOT' },
 ]
 
 export default function About() {
@@ -41,29 +39,48 @@ export default function About() {
                 style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.8) 0%, transparent 50%)' }} />
 
               {/* Timeline overlay */}
-              <div className="absolute bottom-0 left-0 right-0 px-5 pb-5 pt-10"
-                style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.95) 60%, transparent)' }}>
-                {/* Line */}
-                <div className="relative mb-4">
-                  <div className="absolute top-1/2 left-0 right-0 h-px" style={{ background: 'rgba(255,255,255,0.12)' }} />
+              <div className="absolute bottom-0 left-0 right-0 px-5 pb-6 pt-16"
+                style={{ background: 'linear-gradient(to top, rgba(10,10,15,1) 55%, transparent)' }}>
+                {/* Timeline line + dots */}
+                <div className="relative">
+                  {/* Track */}
+                  <div className="absolute left-0 right-0 h-px" style={{ top: 6, background: 'rgba(212,175,55,0.2)' }} />
+                  {/* Progress fill */}
+                  <div className="absolute left-0 h-px" style={{ top: 6, width: '75%', background: 'linear-gradient(90deg, #d4af37, rgba(212,175,55,0.3))' }} />
+
                   <div className="flex justify-between relative">
-                    {milestones.map((m, i) => (
-                      <motion.div
-                        key={m.year}
-                        className="flex flex-col items-center"
-                        initial={{ opacity: 0, y: 8 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 + i * 0.1 }}
-                      >
-                        <div className="w-9 h-9 rounded-full flex items-center justify-center mb-2"
-                          style={{ background: `${m.color}15`, border: `1px solid ${m.color}30` }}>
-                          <m.icon size={15} style={{ color: m.color }} />
-                        </div>
-                        <div className="text-sm font-black" style={{ color: m.color }}>{m.year}</div>
-                        <div className="text-[10px] mt-0.5 text-center whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.45)' }}>{m.label}</div>
-                      </motion.div>
-                    ))}
+                    {milestones.map((m, i) => {
+                      const isDone = i < 3
+                      return (
+                        <motion.div
+                          key={m.year}
+                          className="flex flex-col items-center"
+                          style={{ minWidth: 0 }}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.3 + i * 0.12 }}
+                        >
+                          {/* Dot */}
+                          <div className="w-3 h-3 rounded-full mb-3 flex-shrink-0"
+                            style={{
+                              background: isDone ? '#d4af37' : 'rgba(212,175,55,0.25)',
+                              border: isDone ? '2px solid rgba(212,175,55,0.5)' : '1px solid rgba(212,175,55,0.2)',
+                              boxShadow: isDone ? '0 0 8px rgba(212,175,55,0.4)' : 'none',
+                            }} />
+                          {/* Year */}
+                          <div className="text-sm font-black leading-none mb-1"
+                            style={{ color: isDone ? '#d4af37' : 'rgba(212,175,55,0.4)' }}>
+                            {m.year}
+                          </div>
+                          {/* Label */}
+                          <div className="text-xs text-center leading-snug"
+                            style={{ color: isDone ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.25)', whiteSpace: 'nowrap' }}>
+                            {m.label}
+                          </div>
+                        </motion.div>
+                      )
+                    })}
                   </div>
                 </div>
               </div>
