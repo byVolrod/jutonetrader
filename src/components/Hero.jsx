@@ -24,7 +24,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#10b981', animation: 'pulse 2s infinite' }} />
-            Forex · Indices · Crypto
+            Signaux Live · Analyses · Communauté
           </motion.div>
 
           {/* Headline */}
@@ -91,7 +91,7 @@ export default function Hero() {
           >
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#10b981' }} />
-              84+ membres actifs
+              100+ membres actifs
             </span>
             <span style={{ color: 'rgba(255,255,255,0.15)' }}>|</span>
             <span>Noté 5.0★ sur Whop</span>
