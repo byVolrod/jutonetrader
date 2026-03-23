@@ -86,7 +86,7 @@ export default function Community() {
               <div className="relative overflow-hidden" style={{ height: 200 }}>
                 <img src={item.src} alt={item.label}
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                  draggable="false" />
+                  loading="lazy" draggable="false" />
                 <div className="absolute inset-0 pointer-events-none"
                   style={{ background: 'linear-gradient(to top, #0e0e18 0%, transparent 60%)' }} />
               </div>

@@ -24,6 +24,12 @@ export default function Footer() {
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
               Telegram
             </a>
+            <a href="https://instagram.com/justeontrader_1" target="_blank" rel="noopener noreferrer"
+              className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.4)' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#d4af37'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+              Instagram
+            </a>
           </div>
 
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.2)' }}>

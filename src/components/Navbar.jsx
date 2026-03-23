@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
 
 const links = [
@@ -13,6 +13,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
+  const menuRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -33,8 +34,29 @@ export default function Navbar() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (!open) return
+    const onClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', onClickOutside)
+    return () => document.removeEventListener('mousedown', onClickOutside)
+  }, [open])
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [open])
+
   return (
     <nav
+      ref={menuRef}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={scrolled ? {
         background: 'rgba(10,10,15,0.92)',
@@ -45,7 +67,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-[72px]">
-          <a href="#" className="flex items-center gap-2 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <a href="#" className="flex items-center gap-2 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="JustOneTrader - Retour en haut">
             <span className="text-2xl sm:text-3xl font-black tracking-tight text-white">JOT</span>
             <span className="w-2 h-2 rounded-full" style={{ background: '#10b981', boxShadow: '0 0 6px #10b981', animation: 'pulse 2s ease-in-out infinite' }} />
           </a>
@@ -78,7 +100,12 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button onClick={() => setOpen(!open)} className="lg:hidden text-white p-2">
+          <button
+            onClick={() => setOpen(!open)}
+            className="lg:hidden text-white p-2"
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={open}
+          >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
