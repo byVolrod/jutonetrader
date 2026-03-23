@@ -16,8 +16,17 @@ export default function Navbar() {
   const menuRef = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', onScroll)
+    let ticking = false
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -69,7 +78,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-[72px]">
           <a href="#" className="flex items-center gap-2 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="JustOneTrader - Retour en haut">
             <span className="text-2xl sm:text-3xl font-black tracking-tight text-white">JOT</span>
-            <span className="w-2 h-2 rounded-full" style={{ background: '#10b981', boxShadow: '0 0 6px #10b981', animation: 'pulse 2s ease-in-out infinite' }} />
+            <span className="pulse-dot w-2 h-2 rounded-full" style={{ background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
           </a>
 
           <div className="hidden lg:flex items-center gap-1">
