@@ -121,7 +121,7 @@ export default function About() {
               {[
                 { value: '5+', label: 'Ans dans la finance', color: '#d4af37' },
                 { value: '3', label: 'Mentors', color: '#10b981' },
-                { value: '84+', label: 'Membres', color: '#d4af37' },
+                { value: '100+', label: 'Membres', color: '#d4af37' },
               ].map((s, i) => (
                 <motion.div
                   key={s.label}
