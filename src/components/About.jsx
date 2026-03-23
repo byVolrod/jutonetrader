@@ -34,6 +34,7 @@ export default function About() {
                 alt="Fondateur de JustOneTrader"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: '60% 30%' }}
+                loading="lazy"
                 draggable="false"
               />
               <div className="absolute inset-0 pointer-events-none"
