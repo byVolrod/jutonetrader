@@ -67,12 +67,12 @@ export default function Navbar() {
     <nav
       ref={menuRef}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={scrolled ? {
-        background: 'rgba(10,10,15,0.92)',
-        backdropFilter: 'blur(24px)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
-        boxShadow: '0 4px 30px rgba(0,0,0,0.3)',
-      } : {}}
+      style={{
+        background: scrolled ? 'rgba(10,10,15,0.95)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(24px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+        boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.3)' : 'none',
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-[72px]">
