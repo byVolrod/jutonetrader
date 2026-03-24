@@ -33,13 +33,18 @@ section {
 /* Animation pulse optimisée en CSS pur */
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(0.85); }
+  50% { opacity: 0.5; transform: scale(0.75); }
 }
 
 .pulse-dot {
   animation: pulse-dot 2s ease-in-out infinite;
   will-change: opacity, transform;
 }
+
+/* Tailwind v4 : classes gold manquantes */
+.text-gold { color: #d4af37; }
+.bg-gold { background-color: #d4af37; }
+.border-gold { border-color: #d4af37; }
 
 /* Transitions CSS pour les hovers (évite les recalculs JS) */
 .hover-gold {

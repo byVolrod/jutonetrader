@@ -23,7 +23,7 @@ export default function Stats() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
             >
-              <div className={`text-3xl sm:text-4xl font-black mb-1 ${s.gold ? 'text-gold' : 'text-white'}`}>{s.value}</div>
+              <div className="text-3xl sm:text-4xl font-black mb-1" style={{ color: s.gold ? '#d4af37' : '#ffffff' }}>{s.value}</div>
               <div className="text-white font-semibold text-sm mb-0.5">{s.label}</div>
               <div className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>{s.sublabel}</div>
             </motion.div>

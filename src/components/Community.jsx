@@ -50,7 +50,7 @@ export default function Community() {
         >
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-semibold tracking-widest uppercase"
             style={{ border: '1px solid rgba(88,101,242,0.35)', background: 'rgba(88,101,242,0.07)', color: '#a5b4fc' }}>
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#a5b4fc', animation: 'pulse 2s infinite' }} />
+            <span className="pulse-dot w-1.5 h-1.5 rounded-full" style={{ background: '#a5b4fc', boxShadow: '0 0 6px #a5b4fc' }} />
             La preuve par l'image
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4">
