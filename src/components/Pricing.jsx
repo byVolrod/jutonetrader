@@ -44,7 +44,7 @@ const plans = [
       'Alertes Bull/Bear market',
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-crypto/',
-    cta: 'Choisir Crypto',
+    cta: 'Investir en Crypto',
     popular: false,
   },
   {
