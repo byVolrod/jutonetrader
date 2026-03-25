@@ -19,17 +19,17 @@ const plans = [
   },
   {
     name: 'JOT — DTP',
-    emoji: '🏦',
+    emoji: '🖥️',
     price: '24,99€',
     period: '/mois',
-    description: 'Structure, discipline et prises de positions exclusives.',
+    description: 'Terminal de données macro & fondamentales. Lis les marchés avant qu\'ils bougent.',
     features: [
-      'Analyses et prises de positions DTP',
-      'Analyses techniques approfondies',
-      'Support prioritaire',
+      'Calendrier économique commenté en live',
+      'Analyse fondamentale & flux institutionnels',
+      'Données macro : NFP, CPI, PIB, taux directeurs',
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-dtp/',
-    cta: 'Choisir DTP',
+    cta: 'Accéder au terminal',
     popular: false,
   },
   {
