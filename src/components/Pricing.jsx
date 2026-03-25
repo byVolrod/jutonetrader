@@ -22,10 +22,10 @@ const plans = [
     emoji: '🖥️',
     price: '24,99€',
     period: '/mois',
-    description: 'Terminal de données macro & fondamentales. Lis les marchés avant qu\'ils bougent.',
+    description: 'Terminal de données macro & fondamentales pour trader avec le smart money.',
     features: [
-      'Calendrier économique commenté en live',
-      'Analyse fondamentale & flux institutionnels',
+      'Positions retail & bias directionnels institutionnels',
+      'Analyse fondamentale & flux smart money',
       'Données macro : NFP, CPI, PIB, taux directeurs',
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-dtp/',
