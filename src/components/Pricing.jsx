@@ -102,12 +102,12 @@ export default function Pricing() {
                 background: plan.popular
                   ? 'linear-gradient(160deg, rgba(212,175,55,0.09), #1c1c1c 60%)'
                   : plan.highlight
-                    ? 'linear-gradient(160deg, rgba(239,68,68,0.09), #1c1c1c 60%)'
+                    ? 'linear-gradient(160deg, rgba(16,185,129,0.09), #1c1c1c 60%)'
                     : '#1c1c1c',
                 border: plan.popular
                   ? '1px solid rgba(212,175,55,0.35)'
                   : plan.highlight
-                    ? '1px solid rgba(239,68,68,0.35)'
+                    ? '1px solid rgba(16,185,129,0.35)'
                     : '1px solid rgba(255,255,255,0.07)',
               }}
               initial={{ opacity: 0, y: 20 }}
@@ -124,7 +124,7 @@ export default function Pricing() {
               )}
               {plan.highlight && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-xs font-black px-4 py-1.5 rounded-full whitespace-nowrap"
-                  style={{ background: 'linear-gradient(90deg, #ef4444, #f87171)', color: '#ffffff' }}>
+                  style={{ background: 'linear-gradient(90deg, #10b981, #34d399)', color: '#ffffff' }}>
                   <Zap size={10} />
                   NOUVEAU
                 </div>
@@ -151,7 +151,7 @@ export default function Pricing() {
                     <li key={fi} className="flex items-start gap-2.5 text-xs">
                       {isSoon
                         ? <Lock size={12} className="mt-0.5 shrink-0" style={{ color: 'rgba(255,255,255,0.2)' }} />
-                        : <Check size={12} className="mt-0.5 shrink-0" style={{ color: plan.popular ? '#d4af37' : plan.highlight ? '#f87171' : '#10b981' }} />
+                        : <Check size={12} className="mt-0.5 shrink-0" style={{ color: plan.popular ? '#d4af37' : plan.highlight ? '#10b981' : '#10b981' }} />
                       }
                       <span style={isSoon
                         ? { color: 'rgba(255,255,255,0.45)', textDecoration: 'line-through' }
@@ -173,7 +173,7 @@ export default function Pricing() {
                 style={plan.popular
                   ? { background: 'linear-gradient(90deg, #d4af37, #e8c94a)', color: '#0a0a0f', boxShadow: '0 0 30px rgba(212,175,55,0.2)' }
                   : plan.highlight
-                    ? { background: 'linear-gradient(90deg, #ef4444, #f87171)', color: '#ffffff', boxShadow: '0 0 30px rgba(239,68,68,0.2)' }
+                    ? { background: 'linear-gradient(90deg, #10b981, #34d399)', color: '#ffffff', boxShadow: '0 0 30px rgba(16,185,129,0.2)' }
                     : { background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.75)', border: '1px solid rgba(255,255,255,0.1)' }
                 }
                 onMouseEnter={e => { if (!plan.popular && !plan.highlight) e.currentTarget.style.borderColor = 'rgba(212,175,55,0.35)' }}
