@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #141414;
+  --color-dark-card: #12121a;
+  --color-dark-border: #1e1e2e;
+  --color-gold: #d4af37;
+  --color-gold-light: #e8c94a;
+  --color-profit: #10b981;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #141414;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+/* GPU acceleration pour les sections animées */
+section {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Animation pulse optimisée en CSS pur */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* Tailwind v4 : classes gold manquantes */
+.text-gold { color: #d4af37; }
+.bg-gold { background-color: #d4af37; }
+.border-gold { border-color: #d4af37; }
+
+/* Transitions CSS pour les hovers (évite les recalculs JS) */
+.hover-gold {
+  transition: color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.hover-gold:hover {
+  color: #d4af37;
+}
+
+/* Marquee testimonials */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-left {
+  animation: marquee-left 32s linear infinite;
+  will-change: transform;
+}
+.marquee-right {
+  animation: marquee-right 28s linear infinite;
+  will-change: transform;
+}
+.marquee-left:hover, .marquee-right:hover {
+  animation-play-state: paused;
+}
+
+::selection {
+  background-color: #d4af37;
+  color: #141414;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e1e2e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Prevent image drag */
+img {
+  -webkit-user-drag: none;
+}
+
+/* Optimisation rendu des images */
+img {
+  image-rendering: auto;
+  content-visibility: auto;
+}

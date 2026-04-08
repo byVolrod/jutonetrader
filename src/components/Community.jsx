@@ -1,0 +1,164 @@
+import { motion } from 'framer-motion'
+import { Hash, MessageSquare, TrendingUp, BarChart2, Radio, Globe, Trophy } from 'lucide-react'
+
+const screenshots = [
+  {
+    src: '/jot-trades.png',
+    channel: 'jot-trades',
+    label: 'Trades en temps réel',
+    desc: 'Positions partagées en live avec entrée, résultat et analyse.',
+    objectPosition: '50% 30%',
+    icon: TrendingUp,
+    accentColor: '#10b981',
+    dot: '#10b981',
+  },
+  {
+    src: '/analyse-technique.png',
+    channel: 'analyse-technique',
+    label: 'Analyses graphiques',
+    desc: 'Chaque setup expliqué : structure, entrée, SL, TP.',
+    objectPosition: '50% 40%',
+    icon: BarChart2,
+    accentColor: '#d4af37',
+    dot: '#d4af37',
+  },
+  {
+    src: '/analyse-live.jpg',
+    channel: 'analyse-live',
+    label: 'Sessions live',
+    desc: 'Analyses en direct avec partage d\'écran.',
+    objectPosition: '50% 20%',
+    icon: Radio,
+    accentColor: '#ef4444',
+    dot: '#ef4444',
+  },
+  {
+    src: '/analyse-fondamentales.png',
+    channel: 'analyse-fondamentale',
+    label: 'Weekly & Daily FX Recap',
+    desc: 'Brief macro quotidien + récap fondamental hebdomadaire.',
+    objectPosition: '50% 30%',
+    icon: Globe,
+    accentColor: '#a5b4fc',
+    dot: '#a5b4fc',
+  },
+  {
+    src: '/profits.png',
+    channel: 'forex-profits',
+    label: 'Résultats membres',
+    desc: 'Les membres partagent leurs gains.',
+    objectPosition: '20% 40%',
+    icon: Trophy,
+    accentColor: '#d4af37',
+    dot: '#10b981',
+  },
+]
+
+export default function Community() {
+  return (
+    <section id="communaute" className="py-16 sm:py-24 relative overflow-hidden">
+      {/* Background glows */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(88,101,242,0.04), transparent)' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.03) 0%, transparent 70%)' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-semibold tracking-widest uppercase"
+            style={{ border: '1px solid rgba(88,101,242,0.35)', background: 'rgba(88,101,242,0.07)', color: '#a5b4fc' }}>
+            <span className="pulse-dot w-1.5 h-1.5 rounded-full" style={{ background: '#a5b4fc', boxShadow: '0 0 6px #a5b4fc' }} />
+            La preuve par l'image
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4">
+            Pas de promesses.
+            <br />
+            <span style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Des preuves.
+            </span>
+          </h2>
+          {/* Stats row */}
+          <div className="flex items-center justify-center gap-6 flex-wrap mb-8">
+            {[
+              { value: '1', label: 'Discord actif' },
+              { value: '+104', label: 'Membres qui progressent' },
+              { value: '7j/7', label: 'Analyses & updates actifs' },
+            ].map((s) => (
+              <div key={s.label} className="flex items-center gap-2">
+                <span className="text-base font-black" style={{ color: '#d4af37' }}>{s.value}</span>
+                <span className="text-sm" style={{ color: 'rgba(255,255,255,0.58)' }}>{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {screenshots.map((item, i) => {
+            const Icon = item.icon
+            return (
+              <motion.div
+                key={item.channel}
+                className="rounded-2xl overflow-hidden group relative"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  background: '#1c1c1c',
+                  boxShadow: '0 0 0 0 transparent',
+                }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                whileHover={{
+                  borderColor: `${item.accentColor}30`,
+                  boxShadow: `0 8px 32px ${item.accentColor}10`,
+                  translateY: -4,
+                  transition: { duration: 0.25 },
+                }}
+              >
+                {/* Accent top bar */}
+                <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${item.accentColor}80, transparent)` }} />
+
+                {/* Channel header */}
+                <div className="flex items-center gap-2 px-3 py-2.5"
+                  style={{ background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <Hash size={13} style={{ color: 'rgba(255,255,255,0.25)' }} />
+                  <span className="text-xs font-semibold text-white truncate flex-1">{item.channel}</span>
+                  <span className="w-2 h-2 rounded-full shrink-0" style={{ background: item.dot, boxShadow: `0 0 5px ${item.dot}` }} />
+                </div>
+
+                {/* Image */}
+                <div className="relative overflow-hidden" style={{ height: 220 }}>
+                  <img src={item.src} alt={item.label}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                    style={{ objectPosition: item.objectPosition }}
+                    loading="lazy" draggable="false" />
+                  <div className="absolute inset-0 pointer-events-none"
+                    style={{ background: 'linear-gradient(to top, #1c1c1c 0%, rgba(14,14,24,0.2) 60%, transparent 100%)' }} />
+                </div>
+
+                {/* Footer */}
+                <div className="px-3.5 py-3 flex items-start gap-2.5">
+                  <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                    style={{ background: `${item.accentColor}15`, border: `1px solid ${item.accentColor}25` }}>
+                    <Icon size={13} style={{ color: item.accentColor }} />
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold text-sm leading-tight">{item.label}</div>
+                    <p className="text-xs leading-relaxed mt-0.5" style={{ color: 'rgba(255,255,255,0.62)' }}>{item.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+
+      </div>
+    </section>
+  )
+}
