@@ -17,13 +17,15 @@ function getInitial(username) {
 function TestimonialCard({ t }) {
   return (
     <div
-      className="relative rounded-2xl p-5 flex flex-col shrink-0"
+      className="relative rounded-2xl p-5 shrink-0"
       style={{
         background: '#1c1c1c',
         border: '1px solid rgba(255,255,255,0.07)',
         width: 300,
-        height: 260,
+        height: 280,
         marginRight: 16,
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr auto',
       }}
     >
       <div className="absolute top-4 right-4 text-5xl font-black leading-none pointer-events-none select-none"
@@ -31,17 +33,20 @@ function TestimonialCard({ t }) {
         "
       </div>
 
+      {/* Stars — row 1 */}
       <div className="mb-3">
         <Stars />
       </div>
 
-      <div className="flex-1 overflow-y-auto mb-5 pr-1" style={{ scrollbarWidth: 'none' }}>
+      {/* Text — row 2, scrollable, author always visible */}
+      <div style={{ overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', paddingRight: 2 }}>
         <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>
           "{t.description}"
         </p>
       </div>
 
-      <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      {/* Author — row 3, always at bottom */}
+      <div className="flex items-center gap-3 pt-4 mt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-black shrink-0"
           style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#141414' }}>
           {getInitial(t.username)}
