@@ -15,7 +15,7 @@ exports.handler = async function () {
       .map(r => ({
         description: r.description.trim(),
         stars: r.stars ?? 5,
-        username: r.username ?? null,
+        username: r.reviewer_username ?? r.username ?? r.buyer_username ?? r.name ?? null,
         created_at: r.created_at ?? null,
       }))
 
