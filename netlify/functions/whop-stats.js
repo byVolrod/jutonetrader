@@ -10,14 +10,25 @@ exports.handler = async function () {
 
     const [membData, revData] = await Promise.all([membRes.json(), revRes.json()])
 
-    const reviews = (revData.data ?? [])
-      .filter(r => (r.description ?? '').trim().length > 10)
-      .map(r => ({
+    const filtered = (revData.data ?? []).filter(r => (r.description ?? '').trim().length > 10)
+
+    // Fetch username for each reviewer
+    const reviews = await Promise.all(filtered.map(async r => {
+      let username = null
+      try {
+        const uRes = await fetch(`https://api.whop.com/v5/users/${r.user}`, { headers })
+        const uData = await uRes.json()
+        // Try all possible name fields
+        username = uData.name || uData.username || uData.public_name || uData.display_name || null
+      } catch {}
+
+      return {
         description: r.description.trim(),
         stars: r.stars ?? 5,
-        username: r.reviewer_username ?? r.username ?? r.buyer_username ?? r.name ?? null,
+        username,
         created_at: r.created_at ?? null,
-      }))
+      }
+    }))
 
     return {
       statusCode: 200,
