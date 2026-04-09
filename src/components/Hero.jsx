@@ -91,7 +91,7 @@ export default function Hero() {
           >
             <span className="flex items-center gap-1.5">
               <span className="pulse-dot w-1.5 h-1.5 rounded-full" style={{ background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
-              <span className="font-semibold text-white">+104</span> membres actifs
+              <span className="font-semibold text-white">+135</span> membres actifs
             </span>
             <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
             <span>Noté <span className="font-semibold text-white">5.0</span><span style={{ color: '#d4af37' }}>★</span> sur Whop</span>

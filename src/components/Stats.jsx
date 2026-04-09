@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 
 const stats = [
-  { value: '+104', label: 'Membres actifs', sublabel: 'Communauté en croissance' },
+  { value: '+135', label: 'Membres actifs', sublabel: 'Communauté en croissance' },
   { value: '5.0★', label: 'Note moyenne', sublabel: 'Sur 13 avis vérifiés', gold: true },
   { value: '3', label: 'Marchés couverts', sublabel: 'FX • Indices • Crypto' },
   { value: '24/7', label: 'Disponibilité', sublabel: 'Signaux & support' },

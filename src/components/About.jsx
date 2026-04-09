@@ -5,7 +5,7 @@ const milestones = [
   { icon: Flame, year: '2021', label: 'Début dans la finance', desc: 'Premiers pas en copytrading, DCA et investissement passif', color: '#d4af37' },
   { icon: Bitcoin, year: '2024', label: 'Mentor en Crypto', desc: 'Début dans l\'investissement crypto moyen/long-terme et accompagnement des premiers membres', color: '#10b981' },
   { icon: TrendingUp, year: '2025', label: 'Mentors Technique & Fondamentale', desc: 'Formation avancée en analyse technique et fondamentale auprès de mentors spécialisés', color: '#d4af37' },
-  { icon: Users, year: '2026', label: 'JustOneTrader', desc: '+104 membres accompagnés, résultats partagés en transparence totale', color: '#10b981' },
+  { icon: Users, year: '2026', label: 'JustOneTrader', desc: '+135 membres accompagnés, résultats partagés en transparence totale', color: '#10b981' },
 ]
 
 export default function About() {
@@ -105,7 +105,7 @@ export default function About() {
               {[
                 { value: '+5', label: 'Ans dans la finance', color: '#d4af37' },
                 { value: '3', label: 'Mentors', color: '#10b981' },
-                { value: '+104', label: 'Membres', color: '#d4af37' },
+                { value: '+135', label: 'Membres', color: '#d4af37' },
               ].map((s, i) => (
                 <motion.div
                   key={s.label}

@@ -87,7 +87,7 @@ export default function Community() {
           <div className="flex items-center justify-center gap-6 flex-wrap mb-8">
             {[
               { value: '1', label: 'Discord actif' },
-              { value: '+104', label: 'Membres qui progressent' },
+              { value: '+135', label: 'Membres qui progressent' },
               { value: '7j/7', label: 'Analyses & updates actifs' },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-2">

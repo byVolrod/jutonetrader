@@ -103,7 +103,7 @@ export default function Login() {
           {/* Stats */}
           <div style={{ display: 'flex', gap: 24 }}>
             {[
-              { value: '+104', label: 'Membres' },
+              { value: '+135', label: 'Membres' },
               { value: '5.0★', label: 'Sur Whop' },
               { value: '3', label: 'Marchés' },
             ].map(s => (

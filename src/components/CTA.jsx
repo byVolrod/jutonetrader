@@ -24,7 +24,7 @@ export default function CTA() {
             </h2>
 
             <p className="text-base mb-8 max-w-md mx-auto" style={{ color: 'rgba(255,255,255,0.65)' }}>
-              Rejoins +104 traders qui progressent chaque jour. Commence gratuitement, sans engagement.
+              Rejoins +135 traders qui progressent chaque jour. Commence gratuitement, sans engagement.
             </p>
 
             <motion.a
