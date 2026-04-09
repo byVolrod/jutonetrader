@@ -1,13 +1,16 @@
 import { motion } from 'framer-motion'
-
-const stats = [
-  { value: '+135', label: 'Membres actifs', sublabel: 'Communauté en croissance' },
-  { value: '5.0★', label: 'Note moyenne', sublabel: 'Sur 13 avis vérifiés', gold: true },
-  { value: '3', label: 'Marchés couverts', sublabel: 'FX • Indices • Crypto' },
-  { value: '24/7', label: 'Disponibilité', sublabel: 'Signaux & support' },
-]
+import { useWhopStats } from '../hooks/useWhopStats'
 
 export default function Stats() {
+  const { memberCount, reviewCount } = useWhopStats()
+
+  const stats = [
+    { value: `+${memberCount}`, label: 'Membres actifs', sublabel: 'Communauté en croissance' },
+    { value: '5.0★', label: 'Note moyenne', sublabel: `Sur ${reviewCount} avis vérifiés`, gold: true },
+    { value: '3', label: 'Marchés couverts', sublabel: 'FX • Indices • Crypto' },
+    { value: '24/7', label: 'Disponibilité', sublabel: 'Signaux & support' },
+  ]
+
   return (
     <section className="relative py-14 overflow-hidden">
       <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent, rgba(212,175,55,0.03) 50%, transparent)' }} />

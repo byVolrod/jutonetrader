@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Hash, MessageSquare, TrendingUp, BarChart2, Radio, Globe, Trophy } from 'lucide-react'
+import { useWhopStats } from '../hooks/useWhopStats'
 
 const screenshots = [
   {
@@ -55,6 +56,8 @@ const screenshots = [
 ]
 
 export default function Community() {
+  const { memberCount } = useWhopStats()
+
   return (
     <section id="communaute" className="py-16 sm:py-24 relative overflow-hidden">
       {/* Background glows */}
@@ -87,7 +90,7 @@ export default function Community() {
           <div className="flex items-center justify-center gap-6 flex-wrap mb-8">
             {[
               { value: '1', label: 'Discord actif' },
-              { value: '+135', label: 'Membres qui progressent' },
+              { value: `+${memberCount}`, label: 'Membres qui progressent' },
               { value: '7j/7', label: 'Analyses & updates actifs' },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-2">

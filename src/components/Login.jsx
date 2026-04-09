@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useWhopStats } from '../hooks/useWhopStats';
 
 export default function Login() {
   const navigate = useNavigate();
+  const { memberCount } = useWhopStats();
 
   const handleLogin = () => {
     navigate('/home');
@@ -103,7 +105,7 @@ export default function Login() {
           {/* Stats */}
           <div style={{ display: 'flex', gap: 24 }}>
             {[
-              { value: '+135', label: 'Membres' },
+              { value: `+${memberCount}`, label: 'Membres' },
               { value: '5.0★', label: 'Sur Whop' },
               { value: '3', label: 'Marchés' },
             ].map(s => (

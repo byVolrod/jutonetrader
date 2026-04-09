@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Flame, Bitcoin, TrendingUp, Users } from 'lucide-react'
+import { useWhopStats } from '../hooks/useWhopStats'
 
 const milestones = [
   { icon: Flame, year: '2021', label: 'Début dans la finance', desc: 'Premiers pas en copytrading, DCA et investissement passif', color: '#d4af37' },
@@ -9,6 +10,8 @@ const milestones = [
 ]
 
 export default function About() {
+  const { memberCount } = useWhopStats()
+
   return (
     <section id="parcours" className="py-16 sm:py-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
@@ -105,7 +108,7 @@ export default function About() {
               {[
                 { value: '+5', label: 'Ans dans la finance', color: '#d4af37' },
                 { value: '3', label: 'Mentors', color: '#10b981' },
-                { value: '+135', label: 'Membres', color: '#d4af37' },
+                { value: `+${memberCount}`, label: 'Membres', color: '#d4af37' },
               ].map((s, i) => (
                 <motion.div
                   key={s.label}

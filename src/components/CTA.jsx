@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { useWhopStats } from '../hooks/useWhopStats'
 
 export default function CTA() {
+  const { memberCount } = useWhopStats()
+
   return (
     <section className="py-16 sm:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +27,7 @@ export default function CTA() {
             </h2>
 
             <p className="text-base mb-8 max-w-md mx-auto" style={{ color: 'rgba(255,255,255,0.65)' }}>
-              Rejoins +135 traders qui progressent chaque jour. Commence gratuitement, sans engagement.
+              Rejoins +{memberCount} traders qui progressent chaque jour. Commence gratuitement, sans engagement.
             </p>
 
             <motion.a
