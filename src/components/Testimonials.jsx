@@ -17,7 +17,7 @@ function Card({ t }) {
 
   return (
     <div style={{
-      width: 280,
+      width: 340,
       marginRight: 14,
       flexShrink: 0,
       height: '100%',
