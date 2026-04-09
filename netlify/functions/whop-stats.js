@@ -1,5 +1,5 @@
 exports.handler = async function () {
-  const API_KEY = process.env.WHOP_API_KEY
+  const API_KEY = 'apik_OFO0IFUFZjxhm_C2475257_C_4de50b1c4bc58fd200c15959bee97f3371f893b5ff18e80c07749b4a9582d5'
   const headers = { Authorization: `Bearer ${API_KEY}` }
 
   try {
