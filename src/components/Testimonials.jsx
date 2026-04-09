@@ -22,6 +22,7 @@ function TestimonialCard({ t }) {
         background: '#1c1c1c',
         border: '1px solid rgba(255,255,255,0.07)',
         width: 300,
+        height: 260,
         marginRight: 16,
       }}
     >
@@ -34,9 +35,11 @@ function TestimonialCard({ t }) {
         <Stars />
       </div>
 
-      <p className="text-sm leading-relaxed flex-1 mb-5" style={{ color: 'rgba(255,255,255,0.72)' }}>
-        "{t.description}"
-      </p>
+      <div className="flex-1 overflow-y-auto mb-5 pr-1" style={{ scrollbarWidth: 'none' }}>
+        <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>
+          "{t.description}"
+        </p>
+      </div>
 
       <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-black shrink-0"
