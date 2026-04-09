@@ -1,56 +1,6 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-
-const testimonials = [
-  {
-    name: 'Anis Messaoud',
-    date: 'Février 2026',
-    content: 'Il m\'a beaucoup aidé surtout le service Data Trading Pro, franchement y\'a pas plus simple. Ça aide vraiment, magnifique personne et magnifique service, je vous le recommande.',
-    initial: 'A',
-  },
-  {
-    name: 'Nelson',
-    date: 'Octobre 2025',
-    content: 'Franchement j\'ai jamais vu quelqu\'un d\'aussi discipliné et à l\'écoute. C\'est vraiment quelqu\'un de bon conseil et je pense sincèrement que le Discord a de l\'avenir dans le monde de la finance. C\'est le seul Discord que je recommanderai.',
-    initial: 'N',
-  },
-  {
-    name: 'Soufiane Belghali',
-    date: 'Octobre 2025',
-    content: 'Je le connais depuis presque deux ans maintenant. C\'est une super personne, toujours là pour aider, donner des explications ou partager des bons plans. Quelqu\'un d\'honnête, ambitieux et qui cherche vraiment à faire évoluer les gens autour de lui.',
-    initial: 'S',
-  },
-  {
-    name: 'Azedine',
-    date: 'Juillet 2025',
-    content: 'Les explications sont claires, structurées, et vont droit au but. Parfait pour ceux qui veulent apprendre le trading sérieusement, sans bullshit. L\'approche pédagogique est pensée pour accompagner pas à pas, même si on part de zéro.',
-    initial: 'A',
-  },
-  {
-    name: 'Adrien B.',
-    date: 'Juillet 2025',
-    content: 'JustOneTrader est excellent : analyses crypto claires, résumés économiques efficaces et des points réguliers sur le marché. J\'ai fait du profit en suivant leurs placements. Idéal pour progresser et apprendre sur la crypto !',
-    initial: 'A',
-  },
-  {
-    name: 'Maalot',
-    date: 'Novembre 2025',
-    content: 'Ça fait plus d\'un an que je le connais, il est très passionné par ce qu\'il fait et est toujours à l\'écoute s\'il y a un problème. Vous pouvez rejoindre sans risque, votre portefeuille vous remerciera.',
-    initial: 'M',
-  },
-  {
-    name: 'Le_G',
-    date: 'Juillet 2025',
-    content: 'Pas de vendeur de rêve, que du sérieux, très à l\'écoute et de bons conseils. Les informations sont claires. Le top pour apprendre ou bien progresser dans la crypto.',
-    initial: 'L',
-  },
-  {
-    name: 'Wahib',
-    date: 'Juillet 2025',
-    content: 'Super initiation, mode de fonctionnement simple, de la communication, de l\'échange. Hâte de continuer, d\'en apprendre plus et de pouvoir enfin passer à la pratique !',
-    initial: 'W',
-  },
-]
+import { useWhopStats } from '../hooks/useWhopStats'
 
 function Stars() {
   return (
@@ -58,6 +8,10 @@ function Stars() {
       {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#d4af37" color="#d4af37" />)}
     </div>
   )
+}
+
+function getInitial(username) {
+  return (username ?? '?').charAt(0).toUpperCase()
 }
 
 function TestimonialCard({ t }) {
@@ -81,26 +35,27 @@ function TestimonialCard({ t }) {
       </div>
 
       <p className="text-sm leading-relaxed flex-1 mb-5" style={{ color: 'rgba(255,255,255,0.72)' }}>
-        "{t.content}"
+        "{t.description}"
       </p>
 
       <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-black shrink-0"
           style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#141414' }}>
-          {t.initial}
+          {getInitial(t.username)}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-white font-semibold text-sm truncate">{t.name}</div>
-          <div className="text-xs" style={{ color: 'rgba(255,255,255,0.52)' }}>{t.date} · Whop</div>
+          <div className="text-white font-semibold text-sm truncate">{t.username ?? 'Membre Whop'}</div>
+          <div className="text-xs" style={{ color: 'rgba(255,255,255,0.52)' }}>Whop · Vérifié</div>
         </div>
       </div>
     </div>
   )
 }
 
-const allCards = [...testimonials, ...testimonials]
-
 export default function Testimonials() {
+  const { reviews, reviewCount } = useWhopStats()
+  const allCards = [...reviews, ...reviews]
+
   return (
     <section id="temoignages" className="py-16 sm:py-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 40% at 50% 0%, rgba(212,175,55,0.04), transparent)' }} />
@@ -125,7 +80,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-3">
               <Stars />
               <span className="text-white font-black text-xl">5.0</span>
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.58)' }}>· 13 avis vérifiés sur Whop</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.58)' }}>· {reviewCount} avis vérifiés sur Whop</span>
             </div>
           </div>
         </motion.div>
@@ -150,7 +105,7 @@ export default function Testimonials() {
           onMouseEnter={e => e.currentTarget.style.color = '#d4af37'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
         >
-          Voir les 13 avis sur Whop →
+          Voir tous les avis sur Whop →
         </a>
       </motion.div>
     </section>

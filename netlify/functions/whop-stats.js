@@ -4,27 +4,37 @@ exports.handler = async function () {
 
   try {
     const [membRes, revRes] = await Promise.all([
-      fetch('https://api.whop.com/api/v2/memberships', { headers }),
-      fetch('https://api.whop.com/api/v2/reviews', { headers }),
+      fetch('https://api.whop.com/v5/company/memberships?status=active&per=1', { headers }),
+      fetch('https://api.whop.com/v5/company/reviews?per=25', { headers }),
     ])
 
     const [membData, revData] = await Promise.all([membRes.json(), revRes.json()])
+
+    const reviews = (revData.data ?? [])
+      .filter(r => (r.description ?? '').trim().length > 10)
+      .map(r => ({
+        description: r.description.trim(),
+        stars: r.stars ?? 5,
+        username: r.username ?? null,
+        created_at: r.created_at ?? null,
+      }))
 
     return {
       statusCode: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=300', // cache 5 min
+        'Cache-Control': 'no-cache',
       },
       body: JSON.stringify({
         memberCount: membData.pagination?.total_count ?? 135,
         reviewCount: revData.pagination?.total_count ?? 13,
+        reviews,
       }),
     }
-  } catch {
+  } catch (e) {
     return {
       statusCode: 200,
-      body: JSON.stringify({ memberCount: 135, reviewCount: 13 }),
+      body: JSON.stringify({ memberCount: 135, reviewCount: 13, reviews: [] }),
     }
   }
 }
