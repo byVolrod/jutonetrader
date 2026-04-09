@@ -22,7 +22,6 @@ function TestimonialCard({ t }) {
         background: '#1c1c1c',
         border: '1px solid rgba(255,255,255,0.07)',
         width: 300,
-        height: 220,
         marginRight: 16,
       }}
     >
@@ -35,7 +34,7 @@ function TestimonialCard({ t }) {
         <Stars />
       </div>
 
-      <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.72)', display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+      <p className="text-sm leading-relaxed flex-1 mb-5" style={{ color: 'rgba(255,255,255,0.72)' }}>
         "{t.description}"
       </p>
 
