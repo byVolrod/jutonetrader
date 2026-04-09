@@ -72,34 +72,58 @@ export default function About() {
             {/* Vertical timeline */}
             <div className="relative ml-1 mb-8">
               {/* Connecting line */}
-              <div className="absolute left-[17px] top-2 bottom-2 w-px" style={{ background: 'linear-gradient(to bottom, #d4af37, #10b981)' }} />
+              <div className="absolute left-[17px] top-4 bottom-4 w-0.5 rounded-full"
+                style={{ background: 'linear-gradient(to bottom, #d4af37 0%, #10b981 50%, #d4af37 100%)' }} />
 
-              <div className="space-y-5">
-                {milestones.map((m, i) => (
-                  <motion.div
-                    key={m.year}
-                    className="flex items-start gap-4 relative"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 + i * 0.1 }}
-                  >
-                    {/* Icon circle */}
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 relative z-10"
-                      style={{ background: '#141414', border: `2px solid ${m.color}`, boxShadow: `0 0 12px ${m.color}25` }}>
-                      <m.icon size={15} style={{ color: m.color }} />
-                    </div>
+              <div className="space-y-6">
+                {milestones.map((m, i) => {
+                  const isLatest = i === milestones.length - 1
+                  return (
+                    <motion.div
+                      key={m.year}
+                      className="flex items-start gap-4 relative"
+                      initial={{ opacity: 0, x: -16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}
+                    >
+                      {/* Pulse ring on latest */}
+                      {isLatest && (
+                        <div className="absolute left-0 top-0 w-9 h-9 rounded-full z-10 pointer-events-none"
+                          style={{
+                            border: `2px solid ${m.color}`,
+                            animation: 'ping 2s cubic-bezier(0,0,0.2,1) infinite',
+                            opacity: 0.3,
+                          }} />
+                      )}
 
-                    {/* Text */}
-                    <div className="pt-1">
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-sm font-black" style={{ color: m.color }}>{m.year}</span>
-                        <span className="text-sm font-semibold text-white">{m.label}</span>
+                      {/* Icon circle */}
+                      <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 relative z-10"
+                        style={{
+                          background: '#141414',
+                          border: `2px solid ${m.color}`,
+                          boxShadow: `0 0 ${isLatest ? 20 : 10}px ${m.color}${isLatest ? '50' : '25'}`,
+                        }}>
+                        <m.icon size={15} style={{ color: m.color }} />
                       </div>
-                      <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.62)' }}>{m.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
+
+                      {/* Text */}
+                      <div className="pt-1">
+                        <div className="flex items-center gap-2.5 flex-wrap">
+                          <span className="text-sm font-black" style={{ color: m.color }}>{m.year}</span>
+                          <span className="text-sm font-semibold text-white">{m.label}</span>
+                          {isLatest && (
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                              style={{ background: 'rgba(16,185,129,0.12)', color: '#10b981', border: '1px solid rgba(16,185,129,0.25)' }}>
+                              Maintenant
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.62)' }}>{m.desc}</p>
+                      </div>
+                    </motion.div>
+                  )
+                })}
               </div>
             </div>
 
