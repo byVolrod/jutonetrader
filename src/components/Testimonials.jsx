@@ -18,9 +18,9 @@ function Card({ t }) {
   return (
     <div style={{
       width: 340,
+      height: 240,
       marginRight: 14,
       flexShrink: 0,
-      height: '100%',
       display: 'flex',
       flexDirection: 'column',
       background: '#1c1c1c',
@@ -40,17 +40,23 @@ function Card({ t }) {
 
       <StarRow />
 
-      {/* Text fills remaining space */}
-      <p style={{
+      {/* Text — scrollable, hidden scrollbar */}
+      <div style={{
         flex: 1,
-        fontSize: 13,
-        lineHeight: 1.65,
-        color: 'rgba(255,255,255,0.75)',
-        margin: 0,
+        overflowY: 'auto',
         marginBottom: 16,
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
       }}>
-        "{t.description}"
-      </p>
+        <p style={{
+          fontSize: 13,
+          lineHeight: 1.65,
+          color: 'rgba(255,255,255,0.75)',
+          margin: 0,
+        }}>
+          "{t.description}"
+        </p>
+      </div>
 
       {/* Author always at bottom */}
       <div style={{
@@ -127,7 +133,7 @@ export default function Testimonials() {
           className="marquee-left"
           style={{
             display: 'flex',
-            alignItems: 'stretch', /* all cards same height = tallest card */
+            alignItems: 'flex-start',
             width: 'max-content',
           }}
         >
