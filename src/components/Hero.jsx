@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, TrendingUp, Users, Star } from 'lucide-react'
+import { ArrowRight, TrendingUp, Users, Star, BarChart2 } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
 
 // Floating preview cards shown on the right
@@ -73,7 +73,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              Signaux justifiés, analyse technique + fondamentale, résultats partagés en transparence. Une vraie communauté — pas un groupe Telegram de plus.
+              Analyses justifiées, technique + fondamentale, résultats partagés en transparence totale. Une vraie communauté — pas un groupe Telegram de plus.
             </motion.p>
 
             <motion.div
@@ -128,17 +128,19 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-3xl blur-3xl pointer-events-none"
               style={{ background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.07), transparent 70%)' }} />
 
-            {/* Card 1 — Live signal */}
+            {/* Card 1 — Analyse partagée */}
             <PreviewCard delay={0.4} style={{ position: 'absolute', top: 20, left: 10, width: 260 }}>
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full" style={{ background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
-                <span className="text-xs font-bold" style={{ color: '#10b981' }}>Signal en direct</span>
+                <BarChart2 size={12} style={{ color: '#d4af37' }} />
+                <span className="text-xs font-bold" style={{ color: '#d4af37' }}>Analyse partagée</span>
               </div>
-              <div className="text-white font-black text-base mb-1">📈 EURUSD — Long</div>
-              <div className="flex gap-4 text-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                <span>Entrée <span className="text-white font-semibold">1.0842</span></span>
-                <span>SL <span style={{ color: '#f87171' }}>1.0810</span></span>
-                <span>TP <span style={{ color: '#10b981' }}>1.0900</span></span>
+              <div className="text-white font-black text-base mb-2">📊 EURUSD — Haussier</div>
+              <div className="text-xs leading-relaxed mb-2" style={{ color: 'rgba(255,255,255,0.58)' }}>
+                Zone H4 clé testée · Structure bullish HTF · CPI > prévisions
+              </div>
+              <div className="flex items-center gap-1.5 text-xs">
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#10b981' }} />
+                <span style={{ color: '#10b981' }}>Partagé sur Discord</span>
               </div>
             </PreviewCard>
 
