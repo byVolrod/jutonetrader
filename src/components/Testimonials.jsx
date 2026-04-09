@@ -4,7 +4,7 @@ import { useWhopStats } from '../hooks/useWhopStats'
 
 function StarRow() {
   return (
-    <div className="flex gap-0.5 mb-3">
+    <div style={{ display: 'flex', gap: 2, marginBottom: 12 }}>
       {[...Array(5)].map((_, i) => (
         <Star key={i} size={12} fill="#d4af37" color="#d4af37" />
       ))}
@@ -16,39 +16,63 @@ function Card({ t }) {
   const initial = (t.username ?? '?').charAt(0).toUpperCase()
 
   return (
-    <div
-      className="rounded-2xl p-5 shrink-0 flex flex-col"
-      style={{
-        background: '#1c1c1c',
-        border: '1px solid rgba(255,255,255,0.07)',
-        width: 290,
-        marginRight: 14,
-      }}
-    >
-      {/* Stars */}
+    <div style={{
+      width: 280,
+      marginRight: 14,
+      flexShrink: 0,
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      background: '#1c1c1c',
+      border: '1px solid rgba(255,255,255,0.07)',
+      borderRadius: 16,
+      padding: '20px',
+      boxSizing: 'border-box',
+      position: 'relative',
+    }}>
+      {/* Decorative quote */}
+      <div style={{
+        position: 'absolute', top: 12, right: 14,
+        fontSize: 48, fontWeight: 900, lineHeight: 1,
+        color: 'rgba(212,175,55,0.06)', fontFamily: 'Georgia, serif',
+        pointerEvents: 'none', userSelect: 'none',
+      }}>"</div>
+
       <StarRow />
 
-      {/* Quote mark decorative */}
-      <div className="text-4xl font-black leading-none mb-1 select-none"
-        style={{ color: 'rgba(212,175,55,0.08)', fontFamily: 'Georgia, serif', lineHeight: 1 }}>
-        "
-      </div>
-
-      {/* Full text — grows the card */}
-      <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.75)' }}>
-        {t.description}
+      {/* Text fills remaining space */}
+      <p style={{
+        flex: 1,
+        fontSize: 13,
+        lineHeight: 1.65,
+        color: 'rgba(255,255,255,0.75)',
+        margin: 0,
+        marginBottom: 16,
+      }}>
+        "{t.description}"
       </p>
 
-      {/* Author — always below text */}
-      <div className="flex items-center gap-3 pt-3 mt-auto"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black shrink-0"
-          style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#141414' }}>
-          {initial}
-        </div>
+      {/* Author always at bottom */}
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 10,
+        paddingTop: 14,
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+        marginTop: 'auto',
+        flexShrink: 0,
+      }}>
+        <div style={{
+          width: 34, height: 34, borderRadius: '50%',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 13, fontWeight: 900, flexShrink: 0,
+          background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#141414',
+        }}>{initial}</div>
         <div>
-          <div className="text-white font-semibold text-sm">{t.username ?? 'Membre Whop'}</div>
-          <div className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>Whop · Vérifié</div>
+          <div style={{ color: '#fff', fontWeight: 600, fontSize: 13 }}>
+            {t.username ?? 'Membre Whop'}
+          </div>
+          <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 11 }}>
+            Whop · Vérifié
+          </div>
         </div>
       </div>
     </div>
@@ -81,42 +105,36 @@ export default function Testimonials() {
               Ce qu'ils en disent.
             </h2>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="flex gap-0.5">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div style={{ display: 'flex', gap: 2 }}>
               {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#d4af37" color="#d4af37" />)}
             </div>
-            <span className="text-white font-black text-xl">5.0</span>
-            <span className="text-sm" style={{ color: 'rgba(255,255,255,0.58)' }}>
+            <span style={{ color: '#fff', fontWeight: 900, fontSize: 20 }}>5.0</span>
+            <span style={{ color: 'rgba(255,255,255,0.58)', fontSize: 14 }}>
               · {reviewCount} avis vérifiés sur Whop
             </span>
           </div>
         </motion.div>
       </div>
 
-      {/* Marquee — mask edges, overflow hidden ONLY horizontally */}
-      <div
-        style={{
-          overflow: 'hidden',
-          maskImage: 'linear-gradient(90deg, transparent, black 5%, black 95%, transparent)',
-          WebkitMaskImage: 'linear-gradient(90deg, transparent, black 5%, black 95%, transparent)',
-        }}
-      >
+      {/* Marquee */}
+      <div style={{
+        overflow: 'hidden',
+        maskImage: 'linear-gradient(90deg, transparent, black 5%, black 95%, transparent)',
+        WebkitMaskImage: 'linear-gradient(90deg, transparent, black 5%, black 95%, transparent)',
+      }}>
         <div
           className="marquee-left"
           style={{
             display: 'flex',
-            alignItems: 'flex-start',
+            alignItems: 'stretch', /* all cards same height = tallest card */
             width: 'max-content',
-            paddingBottom: 8,
           }}
         >
-          {allCards.map((t, i) => (
-            <Card key={i} t={t} />
-          ))}
+          {allCards.map((t, i) => <Card key={i} t={t} />)}
         </div>
       </div>
 
-      {/* Footer link */}
       <motion.div
         className="text-center mt-10"
         initial={{ opacity: 0 }}
@@ -127,8 +145,7 @@ export default function Testimonials() {
           href="https://whop.com/justonetrader/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm transition-colors"
-          style={{ color: 'rgba(255,255,255,0.5)' }}
+          style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, textDecoration: 'none' }}
           onMouseEnter={e => e.currentTarget.style.color = '#d4af37'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
         >
