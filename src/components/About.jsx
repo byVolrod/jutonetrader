@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Flame, Bitcoin, TrendingUp, Users } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
+import AnimatedNumber from './AnimatedNumber'
 
 const getMilestones = (memberCount) => [
   { icon: Flame, year: '2021', label: 'Premiers pas dans la finance', desc: 'Copytrading, DCA, ETF — 3 ans à tester, perdre, et comprendre les marchés sans raccourci.', color: '#d4af37' },
@@ -130,9 +131,9 @@ export default function About() {
             {/* Stats row */}
             <div className="flex items-center gap-8 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               {[
-                { value: '+5', label: 'Ans dans la finance', color: '#d4af37' },
-                { value: '3', label: 'Mentors', color: '#10b981' },
-                { value: `+${memberCount}`, label: 'Membres', color: '#d4af37' },
+                { count: 5, prefix: '+', label: 'Ans dans la finance', color: '#d4af37' },
+                { count: 3, prefix: '', label: 'Mentors', color: '#10b981' },
+                { count: memberCount, prefix: '+', label: 'Membres', color: '#d4af37' },
               ].map((s, i) => (
                 <motion.div
                   key={s.label}
@@ -141,7 +142,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 + i * 0.08 }}
                 >
-                  <div className="text-2xl font-black" style={{ color: s.color }}>{s.value}</div>
+                  <AnimatedNumber value={s.count} prefix={s.prefix} duration={1800} delay={i * 80} className="text-2xl font-black" style={{ color: s.color }} />
                   <div className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.58)' }}>{s.label}</div>
                 </motion.div>
               ))}

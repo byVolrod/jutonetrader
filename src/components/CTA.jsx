@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Star } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
+import AnimatedNumber from './AnimatedNumber'
 
 export default function CTA() {
   const { memberCount } = useWhopStats()
@@ -47,7 +48,7 @@ export default function CTA() {
                 <Star key={i} size={14} fill="#d4af37" color="#d4af37" />
               ))}
               <span className="ml-2 text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                5.0 · {memberCount} membres satisfaits
+                5.0 · <AnimatedNumber value={memberCount} duration={1800} /> membres satisfaits
               </span>
             </motion.div>
 
@@ -73,7 +74,7 @@ export default function CTA() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              Rejoins +{memberCount} traders qui progressent chaque jour. Commence gratuitement, sans engagement.
+              Rejoins +<AnimatedNumber value={memberCount} duration={1800} /> traders qui progressent chaque jour. Commence gratuitement, sans engagement.
             </motion.p>
 
             <motion.a

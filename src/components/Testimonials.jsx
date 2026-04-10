@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
+import AnimatedNumber from './AnimatedNumber'
 
 function StarRow() {
   return (
@@ -117,7 +118,7 @@ export default function Testimonials() {
             </div>
             <span style={{ color: '#fff', fontWeight: 900, fontSize: 20 }}>5.0</span>
             <span style={{ color: 'rgba(255,255,255,0.58)', fontSize: 14 }}>
-              · {reviewCount} avis vérifiés sur Whop
+              · <AnimatedNumber value={reviewCount} duration={1600} style={{ color: 'rgba(255,255,255,0.58)', fontSize: 14 }} /> avis vérifiés sur Whop
             </span>
           </div>
         </motion.div>

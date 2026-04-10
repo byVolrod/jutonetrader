@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Hash, TrendingUp, BarChart2, Radio, Globe, Trophy, X } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
+import AnimatedNumber from './AnimatedNumber'
 
 const screenshots = [
   {
@@ -142,12 +143,15 @@ export default function Community() {
           {/* Stats row */}
           <div className="flex items-center justify-center gap-6 flex-wrap mb-8">
             {[
-              { value: '5', label: 'salons dédiés' },
-              { value: `+${memberCount}`, label: 'membres actifs' },
+              { count: 5, prefix: '', label: 'salons dédiés' },
+              { count: memberCount, prefix: '+', label: 'membres actifs' },
               { value: '7j/7', label: 'analyses & updates' },
-            ].map((s) => (
+            ].map((s, i) => (
               <div key={s.label} className="flex items-center gap-2">
-                <span className="text-base font-black" style={{ color: '#d4af37' }}>{s.value}</span>
+                {s.count !== undefined
+                  ? <AnimatedNumber value={s.count} prefix={s.prefix} duration={1800} delay={i * 100} className="text-base font-black" style={{ color: '#d4af37' }} />
+                  : <span className="text-base font-black" style={{ color: '#d4af37' }}>{s.value}</span>
+                }
                 <span className="text-sm" style={{ color: 'rgba(255,255,255,0.58)' }}>{s.label}</span>
               </div>
             ))}

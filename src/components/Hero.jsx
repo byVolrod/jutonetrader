@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, TrendingUp, Users, Star, BarChart2 } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
+import AnimatedNumber from './AnimatedNumber'
 
 // Floating preview cards shown on the right
 function PreviewCard({ delay, children, style = {} }) {
@@ -113,7 +114,7 @@ export default function Hero() {
             >
               <span className="flex items-center gap-1.5">
                 <span className="pulse-dot w-1.5 h-1.5 rounded-full" style={{ background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
-                <span className="font-semibold text-white">+{memberCount}</span> membres actifs
+                <AnimatedNumber value={memberCount} prefix="+" className="font-semibold text-white" duration={2000} /> membres actifs
               </span>
               <span style={{ color: 'rgba(255,255,255,0.15)' }}>|</span>
               <span>Noté <span className="font-semibold text-white">5.0</span><span style={{ color: '#d4af37' }}>★</span> sur Whop</span>
@@ -211,7 +212,7 @@ export default function Hero() {
                   ))}
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white">+{memberCount} membres</div>
+                  <div className="text-xs font-bold text-white"><AnimatedNumber value={memberCount} prefix="+" duration={2000} /> membres</div>
                   <div className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>rejoignent chaque mois</div>
                 </div>
               </div>
