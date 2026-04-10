@@ -142,18 +142,24 @@ export default function Testimonials() {
       </div>
 
       <motion.div
-        className="text-center mt-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        className="flex flex-col items-center gap-3 mt-10"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
+        <div className="flex items-center gap-2">
+          {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#d4af37" color="#d4af37" />)}
+          <span className="text-sm font-bold text-white ml-1">5.0</span>
+          <span className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>· {reviewCount} avis vérifiés</span>
+        </div>
         <a
           href="https://whop.com/justonetrader/"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, textDecoration: 'none' }}
+          className="text-sm font-medium transition-colors duration-200 inline-flex items-center gap-1"
+          style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}
           onMouseEnter={e => e.currentTarget.style.color = '#d4af37'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.45)'}
         >
           Voir tous les avis sur Whop →
         </a>

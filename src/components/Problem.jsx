@@ -35,6 +35,9 @@ export default function Problem() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          <p className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'rgba(239,68,68,0.7)' }}>
+            Tu te retrouves là-dedans ?
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4">
             Pourquoi 95% des traders
             <br />

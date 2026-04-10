@@ -7,11 +7,13 @@ const plans = [
     emoji: '📈',
     price: 'Gratuit',
     period: '',
-    description: 'Accès immédiat. Zéro engagement. Testez la méthode.',
+    description: 'Accès immédiat. Zéro engagement. Teste la méthode sans risque.',
     features: [
       'Accès au salon communauté Discord',
       'Analyses de marché générales',
       'Contenu éducatif Forex & Indices',
+      'Questions & réponses en direct',
+      'Accès aux résultats des membres',
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-trading/',
     cta: 'Commencer gratuitement',
@@ -22,7 +24,7 @@ const plans = [
     emoji: '🖥️',
     price: '24,99€',
     period: '/mois',
-    description: 'Nouveau terminal de données macro & institutionnelles. Tradez avec le smart money.',
+    description: 'Nouveau terminal de données macro & institutionnelles. Trade avec le smart money.',
     features: [
       'Positions retail & bias directionnels institutionnels',
       'Analyse fondamentale & flux smart money',
@@ -40,6 +42,7 @@ const plans = [
     price: '39,99€',
     period: '/mois',
     description: 'Investissement crypto moyen/long-terme. Points réguliers sur le marché, accompagnement continu.',
+
     features: [
       'Analyses & prises de positions Crypto',
       'Analyses on-chain & fondamentales',
@@ -91,6 +94,7 @@ export default function Pricing() {
           <p className="text-base max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.65)' }}>
             Pas d'engagement. Upgrade quand tu veux, annule quand tu veux.
           </p>
+
         </motion.div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">

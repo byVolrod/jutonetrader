@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { Hash, MessageSquare, TrendingUp, BarChart2, Radio, Globe, Trophy } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Hash, TrendingUp, BarChart2, Radio, Globe, Trophy, X } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
 
 const screenshots = [
@@ -55,19 +56,71 @@ const screenshots = [
   },
 ]
 
+function Lightbox({ item, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        style={{ background: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(12px)' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+      >
+        <motion.div
+          className="relative max-w-4xl w-full rounded-2xl overflow-hidden"
+          style={{ border: `1px solid ${item.accentColor}30` }}
+          initial={{ scale: 0.92, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.92, opacity: 0 }}
+          transition={{ duration: 0.22 }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between px-4 py-3"
+            style={{ background: 'rgba(20,20,20,0.95)', borderBottom: `1px solid ${item.accentColor}20` }}>
+            <div className="flex items-center gap-2">
+              <Hash size={14} style={{ color: 'rgba(255,255,255,0.35)' }} />
+              <span className="text-sm font-semibold text-white">{item.channel}</span>
+              <span className="w-2 h-2 rounded-full" style={{ background: item.dot, boxShadow: `0 0 5px ${item.dot}` }} />
+            </div>
+            <button onClick={onClose} className="text-white/50 hover:text-white transition-colors">
+              <X size={18} />
+            </button>
+          </div>
+          <img src={item.src} alt={item.label} className="w-full object-contain"
+            style={{ maxHeight: '75vh', background: '#0a0a0a' }} draggable="false" />
+          <div className="px-4 py-3 text-sm font-medium text-white/70"
+            style={{ background: 'rgba(20,20,20,0.95)' }}>
+            {item.label} — {item.desc}
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  )
+}
+
 export default function Community() {
   const { memberCount } = useWhopStats()
+  const [selected, setSelected] = useState(null)
 
   return (
     <section id="communaute" className="py-16 sm:py-24 relative overflow-hidden">
-      {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(88,101,242,0.04), transparent)' }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.03) 0%, transparent 70%)' }} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Lightbox */}
+      {selected && <Lightbox item={selected} onClose={() => setSelected(null)} />}
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center max-w-2xl mx-auto mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -89,9 +142,9 @@ export default function Community() {
           {/* Stats row */}
           <div className="flex items-center justify-center gap-6 flex-wrap mb-8">
             {[
-              { value: '1', label: 'Discord actif' },
-              { value: `+${memberCount}`, label: 'Membres qui progressent' },
-              { value: '7j/7', label: 'Analyses & updates actifs' },
+              { value: '5', label: 'salons dédiés' },
+              { value: `+${memberCount}`, label: 'membres actifs' },
+              { value: '7j/7', label: 'analyses & updates' },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-2">
                 <span className="text-base font-black" style={{ color: '#d4af37' }}>{s.value}</span>
@@ -107,12 +160,8 @@ export default function Community() {
             return (
               <motion.div
                 key={item.channel}
-                className="rounded-2xl overflow-hidden group relative"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  background: '#1c1c1c',
-                  boxShadow: '0 0 0 0 transparent',
-                }}
+                className="rounded-2xl overflow-hidden group relative cursor-zoom-in"
+                style={{ border: '1px solid rgba(255,255,255,0.07)', background: '#1c1c1c' }}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -123,6 +172,7 @@ export default function Community() {
                   translateY: -4,
                   transition: { duration: 0.25 },
                 }}
+                onClick={() => setSelected(item)}
               >
                 {/* Accent top bar */}
                 <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${item.accentColor}80, transparent)` }} />
@@ -143,6 +193,11 @@ export default function Community() {
                     loading="lazy" draggable="false" />
                   <div className="absolute inset-0 pointer-events-none"
                     style={{ background: 'linear-gradient(to top, #1c1c1c 0%, rgba(14,14,24,0.2) 60%, transparent 100%)' }} />
+                  {/* Zoom hint */}
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] font-semibold px-2 py-1 rounded-full"
+                    style={{ background: 'rgba(0,0,0,0.7)', color: 'rgba(255,255,255,0.7)' }}>
+                    ⊕ Agrandir
+                  </div>
                 </div>
 
                 {/* Footer */}
@@ -160,7 +215,6 @@ export default function Community() {
             )
           })}
         </div>
-
       </div>
     </section>
   )

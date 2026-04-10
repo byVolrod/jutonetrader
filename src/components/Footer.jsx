@@ -1,3 +1,36 @@
+import { useState, useEffect } from 'react'
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 900)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Retour en haut"
+      style={{
+        position: 'fixed', bottom: 24, right: 24, zIndex: 40,
+        width: 40, height: 40, borderRadius: '50%',
+        background: 'rgba(20,20,20,0.95)',
+        border: '1px solid rgba(212,175,55,0.25)',
+        color: '#d4af37', fontSize: 18, fontWeight: 700,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        cursor: 'pointer', backdropFilter: 'blur(12px)',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(12px)',
+        transition: 'opacity 0.3s ease, transform 0.3s ease',
+        pointerEvents: visible ? 'auto' : 'none',
+      }}
+    >
+      ↑
+    </button>
+  )
+}
+
 export default function Footer() {
   const links = [
     { label: 'Communauté', href: '#communaute' },
@@ -13,6 +46,8 @@ export default function Footer() {
   ]
 
   return (
+    <>
+    <BackToTop />
     <footer>
       {/* Top separator */}
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.18) 40%, rgba(212,175,55,0.18) 60%, transparent)' }} />
@@ -81,5 +116,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   )
 }
