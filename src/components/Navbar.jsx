@@ -147,37 +147,7 @@ export default function Navbar() {
         </a>
       </div>
 
-      {/* Desktop sticky CTA bar — appears after hero on lg */}
-      <div
-        className="hidden lg:flex fixed bottom-6 right-6 z-40 items-center gap-3 px-5 py-3 rounded-2xl transition-all duration-500"
-        style={{
-          background: 'rgba(20,20,20,0.96)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(212,175,55,0.2)',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.08)',
-          transform: showStickyCta ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
-          opacity: showStickyCta ? 1 : 0,
-          pointerEvents: showStickyCta ? 'auto' : 'none',
-        }}
-      >
-        <div className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
-          <span className="w-1.5 h-1.5 rounded-full inline-block mr-1.5 align-middle" style={{ background: '#10b981' }} />
-          Accès gratuit disponible
-        </div>
-        <a
-          href="https://whop.com/justonetrader"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 font-bold px-4 py-2 rounded-xl text-xs transition-all"
-          style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#0a0a0f' }}
-          onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 0 20px rgba(212,175,55,0.4)' }}
-          onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none' }}
-        >
-          Rejoindre <ArrowRight size={12} />
-        </a>
-      </div>
-
-      {open && (
+{open && (
         <div style={{ background: 'rgba(20,20,20,0.97)', backdropFilter: 'blur(24px)', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
           <div className="px-4 py-5 space-y-1">
             {links.map(link => (
