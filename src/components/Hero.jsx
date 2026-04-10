@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Star } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
 import AnimatedNumber from './AnimatedNumber'
 
@@ -19,20 +19,6 @@ export default function Hero() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full text-center">
 
-          <motion.div
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8"
-            style={{ border: '1px solid rgba(212,175,55,0.25)', background: 'rgba(212,175,55,0.06)' }}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-0.5">
-              {[...Array(5)].map((_, i) => <Star key={i} size={9} fill="#d4af37" color="#d4af37" />)}
-            </div>
-            <span className="text-xs font-semibold" style={{ color: '#d4af37' }}>
-              +{memberCount} membres · Noté 5.0 sur Whop
-            </span>
-          </motion.div>
 
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.04] mb-6"
