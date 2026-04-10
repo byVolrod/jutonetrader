@@ -78,7 +78,7 @@ export default function Services() {
                 style={{ background: `radial-gradient(ellipse at top left, ${s.color}08, transparent 60%)` }} />
 
               <div className="absolute -bottom-2 -right-1 text-[6rem] font-black pointer-events-none select-none leading-none"
-                style={{ color: 'rgba(255,255,255,0.022)' }}>
+                style={{ color: `${s.color}18` }}>
                 {String(i + 1).padStart(2, '0')}
               </div>
 

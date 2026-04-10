@@ -67,7 +67,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-base sm:text-lg leading-relaxed mb-10 max-w-lg"
+              className="text-base sm:text-lg leading-relaxed mb-10 max-w-lg mt-2 sm:mt-4"
               style={{ color: 'rgba(255,255,255,0.68)' }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -170,7 +170,7 @@ export default function Hero() {
             </PreviewCard>
 
             {/* Card 4 — Macro (top-right, compact) */}
-            <PreviewCard delay={0.5} style={{ position: 'absolute', top: 0, right: 0, width: 168 }}>
+            <PreviewCard delay={0.5} style={{ position: 'absolute', top: 0, right: 0, width: 200 }}>
               <div className="text-[10px] font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Macro semaine</div>
               <div className="text-sm font-bold text-white mb-1.5">NFP · CPI · FOMC</div>
               <div className="flex items-center gap-1.5">

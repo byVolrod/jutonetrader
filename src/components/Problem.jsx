@@ -5,17 +5,20 @@ const problems = [
   {
     title: 'Pas de biais ni de méthode',
     desc: 'Pas de biais, pas de confluence. Tu entres au feeling, sans logique ni structure.',
-    glow: 'rgba(239,68,68,0.12)',
+    color: '#ef4444',
+    num: '01',
   },
   {
     title: 'Mauvaise exécution & risque',
     desc: 'Stop mal placé, sizing trop gros, timing raté. Sans R/R défini, chaque trade est un pari.',
-    glow: 'rgba(239,68,68,0.12)',
+    color: '#f97316',
+    num: '02',
   },
   {
     title: 'Psychologie non maîtrisée',
     desc: 'FOMO, revenge trading, sortie panique. Les émotions détruisent même les meilleures analyses.',
-    glow: 'rgba(239,68,68,0.12)',
+    color: '#8b5cf6',
+    num: '03',
   },
 ]
 
@@ -48,22 +51,31 @@ export default function Problem() {
           {problems.map((p, i) => (
             <motion.div
               key={p.title}
-              className="rounded-2xl p-6 cursor-default"
-              style={{ background: '#1c1c1c', border: '1px solid rgba(239,68,68,0.12)' }}
+              className="relative rounded-2xl p-6 cursor-default overflow-hidden"
+              style={{
+                background: `linear-gradient(135deg, ${p.color}08, #1c1c1c 60%)`,
+                border: `1px solid ${p.color}22`,
+              }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
               whileHover={{
-                borderColor: 'rgba(239,68,68,0.4)',
-                boxShadow: '0 0 40px rgba(239,68,68,0.1)',
+                borderColor: `${p.color}55`,
+                boxShadow: `0 0 40px ${p.color}14`,
                 y: -4,
                 transition: { duration: 0.2 },
               }}
             >
+              {/* Large background number */}
+              <div className="absolute -bottom-3 -right-2 text-[5.5rem] font-black pointer-events-none select-none leading-none"
+                style={{ color: `${p.color}10` }}>
+                {p.num}
+              </div>
+
               <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                style={{ background: 'rgba(239,68,68,0.08)' }}>
-                <XCircle size={18} style={{ color: '#f87171' }} />
+                style={{ background: `${p.color}12` }}>
+                <XCircle size={18} style={{ color: p.color }} />
               </div>
               <h3 className="text-white font-bold text-base mb-2">{p.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>{p.desc}</p>
