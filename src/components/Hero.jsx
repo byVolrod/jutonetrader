@@ -123,69 +123,83 @@ export default function Hero() {
           </div>
 
           {/* RIGHT — Floating preview cards */}
-          <div className="hidden lg:block relative h-[460px]">
+          <div className="hidden lg:block relative h-[480px]">
             {/* Glow behind cards */}
             <div className="absolute inset-0 rounded-3xl blur-3xl pointer-events-none"
               style={{ background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.07), transparent 70%)' }} />
 
-            {/* Card 1 — Analyse partagée */}
-            <PreviewCard delay={0.4} style={{ position: 'absolute', top: 20, left: 10, width: 260 }}>
-              <div className="flex items-center gap-2 mb-3">
+            {/* Card 1 — Analyse partagée (top-left) */}
+            <PreviewCard delay={0.4} style={{ position: 'absolute', top: 0, left: 0, width: 248 }}>
+              <div className="flex items-center gap-2 mb-2.5">
                 <BarChart2 size={12} style={{ color: '#d4af37' }} />
-                <span className="text-xs font-bold" style={{ color: '#d4af37' }}>Analyse partagée</span>
+                <span className="text-xs font-bold tracking-wide" style={{ color: '#d4af37' }}>Analyse partagée</span>
               </div>
-              <div className="text-white font-black text-base mb-2">📊 EURUSD — Haussier</div>
-              <div className="text-xs leading-relaxed mb-2" style={{ color: 'rgba(255,255,255,0.58)' }}>
-                Zone H4 clé testée · Structure bullish HTF · CPI > prévisions
+              <div className="text-white font-black text-[15px] mb-2">EURUSD — Haussier</div>
+              <div className="flex flex-wrap gap-1 mb-2.5">
+                {['Zone H4 key', 'HTF bullish', 'CPI > prev.'].map(tag => (
+                  <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full"
+                    style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.55)' }}>
+                    {tag}
+                  </span>
+                ))}
               </div>
               <div className="flex items-center gap-1.5 text-xs">
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#10b981' }} />
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#10b981' }} />
                 <span style={{ color: '#10b981' }}>Partagé sur Discord</span>
               </div>
             </PreviewCard>
 
-            {/* Card 2 — Performance */}
-            <PreviewCard delay={0.55} style={{ position: 'absolute', top: 160, right: 0, width: 220 }}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>Cette semaine</span>
-                <TrendingUp size={14} style={{ color: '#10b981' }} />
+            {/* Card 4 — Macro (top-right, compact) */}
+            <PreviewCard delay={0.5} style={{ position: 'absolute', top: 0, right: 0, width: 168 }}>
+              <div className="text-[10px] font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Macro semaine</div>
+              <div className="text-sm font-bold text-white mb-1.5">NFP · CPI · FOMC</div>
+              <div className="flex items-center gap-1.5">
+                <span style={{ color: '#d4af37' }}>⚡</span>
+                <span className="text-xs font-semibold" style={{ color: '#d4af37' }}>Bias haussier USD</span>
               </div>
-              <div className="text-2xl font-black" style={{ color: '#10b981' }}>+5.2R</div>
-              <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.45)' }}>3 trades gagnants / 1 perdant</div>
-              <div className="mt-3 h-1 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
+            </PreviewCard>
+
+            {/* Card 2 — Performance (middle-right) */}
+            <PreviewCard delay={0.62} style={{ position: 'absolute', top: 160, right: 0, width: 214 }}>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.4)' }}>Cette semaine</span>
+                <TrendingUp size={13} style={{ color: '#10b981' }} />
+              </div>
+              <div className="text-[28px] font-black leading-none mb-1" style={{ color: '#10b981' }}>+5.2R</div>
+              <div className="flex items-center justify-between text-[11px] mb-3" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                <span>3 gagnants · 1 perdant</span>
+                <span className="font-semibold" style={{ color: '#10b981' }}>75%</span>
+              </div>
+              <div className="h-1 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
                 <div className="h-full rounded-full" style={{ width: '75%', background: 'linear-gradient(90deg, #10b981, #34d399)' }} />
               </div>
             </PreviewCard>
 
-            {/* Card 3 — Community */}
-            <PreviewCard delay={0.7} style={{ position: 'absolute', bottom: 60, left: 30, width: 240 }}>
+            {/* Card 3 — Community (bottom-left) */}
+            <PreviewCard delay={0.76} style={{ position: 'absolute', bottom: 0, left: 0, width: 238 }}>
               <div className="flex items-center gap-2 mb-3">
-                <Users size={13} style={{ color: '#d4af37' }} />
+                <Users size={12} style={{ color: '#d4af37' }} />
                 <span className="text-xs font-bold text-white">Communauté active</span>
               </div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="flex -space-x-1.5">
+              <div className="flex items-center gap-2.5 mb-2.5">
+                <div className="flex -space-x-2">
                   {['A','N','S','M','L'].map((l, i) => (
-                    <div key={i} className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black"
-                      style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#141414', border: '1.5px solid #141414' }}>
+                    <div key={i} className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black"
+                      style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#141414', border: '2px solid rgba(20,20,20,0.9)' }}>
                       {l}
                     </div>
                   ))}
                 </div>
-                <span className="text-xs" style={{ color: 'rgba(255,255,255,0.6)' }}>+{memberCount} membres</span>
+                <div>
+                  <div className="text-xs font-bold text-white">+{memberCount} membres</div>
+                  <div className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>rejoignent chaque mois</div>
+                </div>
               </div>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 pt-2" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                 {[...Array(5)].map((_,i) => <Star key={i} size={10} fill="#d4af37" color="#d4af37" />)}
-                <span className="text-xs ml-1 font-bold text-white">5.0</span>
-                <span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>sur Whop</span>
+                <span className="text-[11px] ml-1 font-bold text-white">5.0</span>
+                <span className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>· Whop verified</span>
               </div>
-            </PreviewCard>
-
-            {/* Card 4 — Fondamentale badge */}
-            <PreviewCard delay={0.85} style={{ position: 'absolute', top: 80, right: 20, width: 180 }}>
-              <div className="text-xs font-semibold mb-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Analyse macro</div>
-              <div className="text-sm font-bold text-white">NFP + CPI cette semaine</div>
-              <div className="text-xs mt-1.5" style={{ color: '#d4af37' }}>⚡ Bias haussier USD</div>
             </PreviewCard>
           </div>
 
