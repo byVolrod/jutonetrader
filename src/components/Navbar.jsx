@@ -13,7 +13,6 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [showStickyCta, setShowStickyCta] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
   const menuRef = useRef(null)
@@ -26,8 +25,6 @@ export default function Navbar() {
           const y = window.scrollY
           setScrolled(y > 50)
           setShowStickyCta(y > 650)
-          const total = document.documentElement.scrollHeight - window.innerHeight
-          setScrollProgress(total > 0 ? (y / total) * 100 : 0)
           ticking = false
         })
         ticking = true
@@ -81,16 +78,6 @@ export default function Navbar() {
         boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.3)' : 'none',
       }}
     >
-      {/* Scroll progress bar */}
-      <div
-        style={{
-          position: 'absolute', bottom: 0, left: 0, height: 1.5,
-          width: `${scrollProgress}%`,
-          background: 'linear-gradient(90deg, #d4af37, #fef08a)',
-          transition: 'width 0.08s linear',
-          opacity: scrolled ? 1 : 0,
-        }}
-      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-[72px]">
           <a href="#" className="flex items-center group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="JustOneTrader - Retour en haut">

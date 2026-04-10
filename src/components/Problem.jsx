@@ -3,20 +3,20 @@ import { XCircle, CheckCircle } from 'lucide-react'
 
 const problems = [
   {
-    title: 'Pas de biais ni de méthode',
-    desc: 'Pas de biais, pas de confluence. Tu entres au feeling, sans logique ni structure.',
+    title: 'Trader sans biais ni structure',
+    desc: 'Entrée au feeling, sans confluence ni direction HTF. Sans logique définie, tu joues contre toi-même à chaque position.',
     color: '#ef4444',
     num: '01',
   },
   {
-    title: 'Mauvaise exécution & risque',
-    desc: 'Stop mal placé, sizing trop gros, timing raté. Sans R/R défini, chaque trade est un pari.',
+    title: 'Exécution et gestion du risque',
+    desc: 'Stop mal placé, sizing émotionnel, entrée précipitée. Une seule erreur efface plusieurs semaines de travail.',
     color: '#f97316',
     num: '02',
   },
   {
-    title: 'Psychologie non maîtrisée',
-    desc: 'FOMO, revenge trading, sortie panique. Les émotions détruisent même les meilleures analyses.',
+    title: 'Le mental qui sabote tout',
+    desc: 'FOMO, revenge trading, fermeture prématurée. Les meilleures analyses ne servent à rien quand les émotions décident.',
     color: '#8b5cf6',
     num: '03',
   },
@@ -36,17 +36,17 @@ export default function Problem() {
           viewport={{ once: true }}
         >
           <p className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'rgba(239,68,68,0.7)' }}>
-            Tu te retrouves là-dedans ?
+            Ces erreurs te coûtent des trades chaque semaine
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4">
-            Pourquoi 95% des traders
+            95% des traders perdent.
             <br />
             <span style={{ background: 'linear-gradient(90deg, #f87171, #fca5a5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              ne deviennent jamais rentables ?
+              Pas par manque d'effort.
             </span>
           </h2>
-          <p className="text-base" style={{ color: 'rgba(255,255,255,0.62)' }}>
-            Ce n'est pas le marché. Ce sont toujours les mêmes erreurs évitables.
+          <p className="text-base max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.62)' }}>
+            Chaque erreur ci-dessous est prévisible. Et surtout — entièrement évitable.
           </p>
         </motion.div>
 
@@ -101,7 +101,7 @@ export default function Problem() {
           <div className="flex items-center gap-3">
             <CheckCircle size={20} style={{ color: '#10b981' }} className="shrink-0" />
             <p className="text-sm sm:text-base font-semibold text-white">
-              JustOneTrader résout ces 3 problèmes avec une méthode structurée et transparente.
+              Ces 3 problèmes ont une solution : méthode, structure, et une communauté qui trade comme toi.
             </p>
           </div>
           <a
