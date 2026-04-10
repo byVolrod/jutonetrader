@@ -122,6 +122,26 @@ export default function Hero() {
             </motion.div>
           </div>
 
+          {/* MOBILE stats band — visible only below lg */}
+          <motion.div
+            className="lg:hidden grid grid-cols-3 gap-3 mt-2"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            {[
+              { value: `+${memberCount}`, label: 'membres actifs', color: '#10b981' },
+              { value: '5.0★', label: 'note sur Whop', color: '#d4af37' },
+              { value: '100%', label: 'transparent', color: '#d4af37' },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col items-center text-center rounded-2xl py-3 px-2"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                <span className="text-lg font-black" style={{ color: s.color }}>{s.value}</span>
+                <span className="text-[10px] mt-0.5 leading-tight" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.label}</span>
+              </div>
+            ))}
+          </motion.div>
+
           {/* RIGHT — Floating preview cards */}
           <div className="hidden lg:block relative h-[480px]">
             {/* Glow behind cards */}

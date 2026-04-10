@@ -3,10 +3,10 @@ import { Flame, Bitcoin, TrendingUp, Users } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
 
 const milestones = [
-  { icon: Flame, year: '2021', label: 'Début dans la finance', desc: 'Premiers pas en copytrading, DCA et investissement passif', color: '#d4af37' },
-  { icon: Bitcoin, year: '2024', label: 'Mentor en Crypto', desc: 'Début dans l\'investissement crypto moyen/long-terme et accompagnement des premiers membres', color: '#10b981' },
-  { icon: TrendingUp, year: '2025', label: 'Mentors Technique & Fondamentale', desc: 'Formation avancée en analyse technique et fondamentale auprès de mentors spécialisés', color: '#d4af37' },
-  { icon: Users, year: '2026', label: 'JustOneTrader', desc: '+135 membres accompagnés, résultats partagés en transparence totale', color: '#10b981' },
+  { icon: Flame, year: '2021', label: 'Premiers pas dans la finance', desc: 'Copytrading, DCA, ETF — 3 ans à tester, perdre, et comprendre les marchés sans raccourci.', color: '#d4af37' },
+  { icon: Bitcoin, year: '2024', label: 'Accompagnement Crypto', desc: 'Premiers membres accompagnés en investissement crypto moyen/long-terme. 5.0★ dès le lancement sur Whop.', color: '#10b981' },
+  { icon: TrendingUp, year: '2025', label: 'Formation Technique & Fondamentale', desc: 'Apprentissage avancé auprès de 3 mentors spécialisés — analyse technique, fondamentale et flux institutionnels.', color: '#d4af37' },
+  { icon: Users, year: '2026', label: 'JustOneTrader — en direct', desc: '+135 membres actifs, 0 résultat caché. Chaque trade partagé avant et après en transparence totale.', color: '#10b981' },
 ]
 
 export default function About() {

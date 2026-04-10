@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 
 const links = [
   { label: 'Communauté', href: '#communaute', id: 'communaute' },
@@ -12,6 +12,7 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [showStickyCta, setShowStickyCta] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
   const menuRef = useRef(null)
@@ -21,7 +22,9 @@ export default function Navbar() {
     const onScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 50)
+          const y = window.scrollY
+          setScrolled(y > 50)
+          setShowStickyCta(y > 650)
           ticking = false
         })
         ticking = true
@@ -118,6 +121,60 @@ export default function Navbar() {
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
+      </div>
+
+      {/* Sticky bottom CTA — appears after scrolling past hero */}
+      <div
+        className="fixed bottom-0 left-0 right-0 z-40 flex items-center justify-center gap-4 px-4 py-3 sm:hidden transition-all duration-500"
+        style={{
+          background: 'rgba(14,14,14,0.97)',
+          backdropFilter: 'blur(20px)',
+          borderTop: '1px solid rgba(212,175,55,0.15)',
+          transform: showStickyCta ? 'translateY(0)' : 'translateY(100%)',
+          opacity: showStickyCta ? 1 : 0,
+          pointerEvents: showStickyCta ? 'auto' : 'none',
+        }}
+      >
+        <a
+          href="https://whop.com/justonetrader"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 max-w-xs flex items-center justify-center gap-2 font-bold py-3 rounded-xl text-sm"
+          style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#0a0a0f' }}
+        >
+          Commencer gratuitement
+          <ArrowRight size={15} />
+        </a>
+      </div>
+
+      {/* Desktop sticky CTA bar — appears after hero on lg */}
+      <div
+        className="hidden lg:flex fixed bottom-6 right-6 z-40 items-center gap-3 px-5 py-3 rounded-2xl transition-all duration-500"
+        style={{
+          background: 'rgba(20,20,20,0.96)',
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(212,175,55,0.2)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.08)',
+          transform: showStickyCta ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+          opacity: showStickyCta ? 1 : 0,
+          pointerEvents: showStickyCta ? 'auto' : 'none',
+        }}
+      >
+        <div className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <span className="w-1.5 h-1.5 rounded-full inline-block mr-1.5 align-middle" style={{ background: '#10b981' }} />
+          Accès gratuit disponible
+        </div>
+        <a
+          href="https://whop.com/justonetrader"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 font-bold px-4 py-2 rounded-xl text-xs transition-all"
+          style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#0a0a0f' }}
+          onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 0 20px rgba(212,175,55,0.4)' }}
+          onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none' }}
+        >
+          Rejoindre <ArrowRight size={12} />
+        </a>
       </div>
 
       {open && (

@@ -4,28 +4,28 @@ import { Plus, Minus } from 'lucide-react'
 
 const faqs = [
   {
-    q: 'C\'est quoi JustOneTrader ?',
-    a: 'JustOneTrader est une communauté de traders et d\'investisseurs réunie autour d\'une approche rigoureuse des marchés financiers : Forex, Indices et Crypto. Analyses en temps réel, trades commentés, suivi de portefeuille et accompagnement personnalisé. La particularité ? Une transparence totale sur chaque décision, chaque résultat, chaque étape du parcours.',
+    q: 'Est-ce que ça marche si je suis débutant ?',
+    a: 'Oui — et c\'est même fait pour ça. Le plan gratuit te donne accès aux analyses commentées et à la communauté Discord. Chaque prise de position est accompagnée du raisonnement complet : pourquoi ce marché, pourquoi ce niveau, quelle gestion du risque. Tu lis, tu comprends, tu progresses. Aucune expérience préalable requise.',
   },
   {
-    q: 'Je suis débutant en trading, c\'est fait pour moi ?',
-    a: 'Oui. Le plan gratuit est conçu pour ceux qui commencent. Chaque signal est accompagné d\'une explication structurée : zone d\'entrée, stop-loss, take-profit et raisonnement. Pas de jargon inutile, juste ce qu\'il faut pour comprendre et agir. La communauté Discord est bienveillante et accessible à tout moment.',
+    q: 'Combien de temps par jour faut-il consacrer ?',
+    a: '15 à 30 minutes par jour suffisent. Les analyses arrivent directement sur Discord — tu consultes à ton rythme, matin ou soir. Pas besoin d\'être collé aux écrans. La méthode est construite pour des gens qui ont une vie en dehors des marchés.',
   },
   {
-    q: 'Comment fonctionnent les analyses et prises de positions ?',
-    a: 'Les analyses arrivent directement dans votre salon Discord privé. Chaque alerte inclut le contexte de marché (analyse technique + fondamentale), le point d\'entrée, le stop-loss, les objectifs de prise de profits et la taille de position recommandée. Rien n\'est envoyé sans justification.',
+    q: 'Est-ce que tu trades toi-même en direct ?',
+    a: 'Oui. Chaque prise de position est partagée avant l\'entrée, avec l\'analyse derrière. Le résultat est posté après clôture — gain ou perte. Rien n\'est modifié après coup, rien n\'est caché. C\'est la différence entre JustOneTrader et un simple groupe de "alertes".',
   },
   {
-    q: 'Quel plan choisir pour débuter ?',
-    a: 'Commencez par le plan gratuit pour découvrir la méthode et l\'ambiance. Si vous investissez en crypto, JOT - CRYPTO est fait pour vous. Pour un accès complet à tous les marchés (Forex, Indices, Crypto) avec les analyses premium, JOT - PREMIUM est le meilleur investissement.',
+    q: 'Quel plan choisir pour commencer ?',
+    a: 'Commence par le plan gratuit — accès immédiat, zéro carte bleue. Si tu veux aller plus loin sur le Forex et les Indices, JOT Premium est le meilleur investissement. Si tu es centré sur la crypto moyen/long terme, JOT Crypto est fait pour toi. Tu peux upgrade à tout moment sans perdre l\'accès.',
   },
   {
-    q: 'Puis-je changer de plan à tout moment ?',
-    a: 'Oui, sans engagement. Vous pouvez upgrader, downgrader ou annuler votre abonnement à tout moment depuis votre espace Whop. Aucun frais caché, aucune mauvaise surprise.',
+    q: 'Et si je ne suis pas satisfait ?',
+    a: 'Tu as 7 jours pour essayer n\'importe quel plan payant. Si ça ne correspond pas à tes attentes, tu es remboursé intégralement — aucune question posée. L\'annulation se fait en 2 clics depuis ton espace Whop.',
   },
   {
-    q: 'Les résultats sont-ils garantis ?',
-    a: 'Non, et tout trader honnête vous dira la même chose. Le trading comporte des risques de perte en capital. Ce que JustOneTrader garantit : des analyses rigoureuses, des setups justifiés, une gestion du risque transparente et un accompagnement sincère dans votre progression. Nos performances sont enregistrées en temps réel sur Pilot, accessibles à tous les membres.',
+    q: 'C\'est quoi la différence avec d\'autres groupes Discord ?',
+    a: 'La transparence totale et l\'absence de mise en scène. Pas de screenshots sélectionnés, pas de résultats tronqués. Les trades sont postés en amont avec le raisonnement, les résultats en aval même quand c\'est négatif. Le track record est accessible à tous les membres en temps réel.',
   },
 ]
 

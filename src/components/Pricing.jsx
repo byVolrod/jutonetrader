@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Check, Sparkles, Lock, Zap } from 'lucide-react'
+import { Check, Sparkles, Lock, Zap, ShieldCheck } from 'lucide-react'
 
 const plans = [
   {
@@ -91,6 +91,20 @@ export default function Pricing() {
           <p className="text-base max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.65)' }}>
             Pas d'engagement. Upgrade quand tu veux, annule quand tu veux.
           </p>
+        </motion.div>
+
+        {/* Guarantee banner */}
+        <motion.div
+          className="flex items-center justify-center gap-3 mb-8 px-5 py-3 rounded-2xl mx-auto w-fit"
+          style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.18)' }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <ShieldCheck size={16} style={{ color: '#10b981' }} />
+          <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            Satisfait ou remboursé sous <span className="font-bold text-white">7 jours</span> — aucune question posée
+          </span>
         </motion.div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
