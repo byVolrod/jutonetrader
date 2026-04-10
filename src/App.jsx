@@ -1,5 +1,4 @@
 import Navbar from './components/Navbar'
-import CustomCursor from './components/CustomCursor'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
 import Community from './components/Community'
@@ -23,7 +22,6 @@ function Divider() {
 export default function App() {
   return (
     <div className="min-h-screen" style={{ background: '#141414' }}>
-      <CustomCursor />
       <Navbar />
       <Hero />
       <Divider />

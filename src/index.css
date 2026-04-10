@@ -31,10 +31,6 @@ body {
   animation: page-fadein 0.45s ease-out forwards;
 }
 
-/* Custom cursor — pointer-fine only (desktop mouse) */
-@media (pointer: fine) {
-  *, *::before, *::after { cursor: none !important; }
-}
 
 /* Grain overlay */
 body::after {
