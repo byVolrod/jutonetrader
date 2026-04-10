@@ -12,7 +12,7 @@ const FALLBACK_REVIEWS = [
   { description: "Super initiation, mode de fonctionnement simple, de la communication, de l'échange. Hâte de continuer et d'en apprendre plus !", stars: 5, username: 'Wahib' },
 ]
 
-const FALLBACK = { memberCount: 135, reviewCount: 13, reviews: FALLBACK_REVIEWS }
+const FALLBACK = { memberCount: 113, reviewCount: 13, reviews: FALLBACK_REVIEWS }
 
 let cache = null
 let pending = null
